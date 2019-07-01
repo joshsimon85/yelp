@@ -1,0 +1,101 @@
+/* Universal */
+ul {
+  list-style: none;
+}
+
+a.button {
+  border: 2px solid #fff;
+  border-radius: 4px;
+  padding: 8px 20px;
+}
+
+a.button:hover {
+  background: #fff;
+  color: #666;
+  text-decoration: none;
+}
+
+/* Hero Section */
+.alert-nav {
+  font-size: 12px;
+}
+
+.alert-nav li a {
+  padding-right: 0;
+  margin-right: 0;
+}
+
+.alert-nav .close {
+  border: none;
+  color: black;
+  padding: 0;
+  display: inline-block;
+}
+
+.hero .button {
+  margin-left: 28px;
+}
+
+.hero {
+  background-color: #333;
+  background-image: url(https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_large_assets/507de6a720e4/assets/img/home/hero_photos/pkwm_5P7XMoIXHOzQR0Y7A.jpg);
+  background-size: cover;
+  background-position: 50%;
+  height: 570px;
+}
+
+.hero > nav {
+  font-size: 0;
+  margin: 0 auto;
+  padding-top: 20px;
+  width: 70%;
+}
+
+.hero > nav li {
+  display: inline-block;
+}
+
+.hero > nav li a {
+  color: #fff;
+}
+
+.hero-nav {
+  display: inline-block;
+  font-size: 16px;
+}
+
+.hero-nav {
+  width: 50%;
+}
+
+.hero-nav li {
+  margin-right: 22px;
+}
+
+.hero-nav li a, .hero-login li:first-of-type a {
+  padding: 0 5px 5px 5px;
+}
+
+.hero-nav li a:hover, .hero-login li:first-of-type a:hover {
+  border-bottom: 2px solid #fff;
+  text-decoration: none;
+}
+
+.hero-login {
+  display: inline-block;
+  font-size: 14px;
+  text-align: right;
+  width: 50%;
+}
+
+#logo {
+  color: #fff;
+  font-family: 'Varela Round', sans-serif;
+  font-size:  56px;
+  margin-top: 25px;
+  text-align: center;
+}
+
+.hero > nav + a {
+  text-decoration: none;
+}
