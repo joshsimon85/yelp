@@ -1,3 +1,4 @@
+=render 'shared/upper_notice'
 %section.hero
   %nav
     %ul.hero-nav
@@ -17,61 +18,68 @@
       %li
         %a.button{ href: '#' }
           Sign Up
-  %a{ href: '#' }
-    %h1{ id: 'logo' }
+  %h1{ id: 'logo' }
+    %a{ href: '#' }
       yELp
   %form{ method: 'get', action: '#' }
     %label{ for: 'find-q' }
       Find
-      %input{ type: 'text', name: 'find_query', id: 'find-q' }
-    %label{ for: 'near-q', placeholder: 'movers, burgers, bars, spas...'}
+      %input{ type: 'text', name: 'find_query', id: 'find-q', placeholder: 'movers, burgers, bars, spas...' }
+    %label{ for: 'near-q'}
       Near
-      %input{ type: 'text', name: 'near_query', id: 'near-q', placehoder: 'Longmont, CO'}
-    %input{ type: 'submit', value: 'Search Icon'}
+      %input{ type: 'text', name: 'near_query', id: 'near-q', placeholder: 'Longmont, CO'}
+    %input{ type: 'submit', value: 'Search'}
   %ul.sub-nav
     %li
+      =fa_icon 'truck'
       %a{ href: '#' }
         Movers
     %li
+      =fa_icon 'cutlery'
       %a{ href: '#' }
         Restaurants
     %li
+      =fa_icon 'home'
       %a{ href: '#' }
         Home Services
+      =fa_icon 'caret-down'
     %li
+      =fa_icon 'plane'
       %a{ href: '#' }
         Delivery
+  %div.photo-credit
     %a{ href: '/biz/revival-minneapolis' }
-      %span
-        Revival
-    %p.photo-owner
-      Photo by Ashley C.
+      Revival
+  %p.photo-credit
+    Photo by
+    %a{ href: '#' }
+      Ashley C.
 %section.best-in-town
   %h2
     Find the Best Businesses in Town
-  %ul
-    %li
+  %ul.flex-quarter
+    %li.card.content-center
       %figure
         %a{ href: '#' }
-          %img{ url: '', alt: 'dentist chair' }
+          %img{ src: '/assets/dentist_chair.jpeg', alt: 'dentist chair' }
           %figcaption
             Dentists
-    %li
+    %li.card.content-center
       %figure
         %a{ href: '#' }
-          %img{ url: '', alt: 'phone being repaired' }
+          %img{ src: '/assets/phone_repair.jpeg', alt: 'phone being repaired' }
           %figcaption
             Phone Repair
-    %li
+    %li.card.content-center
       %figure
         %a{ href: '#' }
-          %img{ url: '', alt: 'clothes hanging to be dry cleaned' }
+          %img{ src: '/assets/dry_cleaning.jpeg', alt: 'clothes hanging to be dry cleaned' }
           %figcaption
             Dry Cleaning
-    %li
+    %li.card.content-center
       %figure
         %a{ href: '#' }
-          %img{ url: '', alt: 'massage chair' }
+          %img{ src: '/assets/massage_chair.jpeg', alt: 'massage chair' }
           %figcaption
             Massage
 %main
@@ -99,58 +107,122 @@
           Chicago
       %li
         %a{href: '#' }
+          =fa_icon 'search'
           More Cities
-    %div.container.cards
-      %div.full-width-card
-        %h3
-          The Local Yelp
+  %section.new-businesses
+    %h3
+      Hot & New Businesses
+    %ul.flex-third
+      %li.card
         %a{ href: '#' }
-          %img{ url: '#', alt: 'food' }
+          %img{ src: '/assets/salad.jpg', alt: 'food' }
+        %a{ href: '#' }
+          Grazie Grazie
+        %div.rating
+          %div.rating-box
+            %div.rating{ style: 'width: 50%' }
+          %span
+            37 reviews
+        %p
+          $$, Seafood, Fish & Chips, Tacos
+        %p
+          Ballston
+        %p
+          =fa_icon 'fire'
+          Opened 4 weeks ago
+      %li.card
+        %a{ href: '#' }
+          %img{ src: '/assets/pizza.jpeg', alt: 'food' }
+        %a{ href: '#' }
+          Grazie Grazie
+        %div.rating
+          %div.rating-box
+            %div.rating{ style: 'width: 90%' }
+          %span
+            37 reviews
+        %p
+          $$, Seafood, Fish & Chips, Tacos
+        %p
+          Ballston
+        %p
+          =fa_icon 'fire'
+          Opened 4 weeks ago
+      %li.card
+        %a{ href: '#' }
+          %img{ src: '/assets/hamburger.jpeg', alt: 'food' }
+        %a{ href: '#' }
+          Grazie Grazie
+        %div.rating
+          %div.rating-box
+            %div.rating{ style: 'width: 25%' }
+          %span
+            37 reviews
+        %p
+          $$, Seafood, Fish & Chips, Tacos
+        %p
+          Clarendon
+        %p
+          =fa_icon 'fire'
+          Opened 2 weeks ago
+    %p
+      %a{ href: '#' }
+        See more hot and new businesses
+  %section.highlight-reel
+    %div.local-yelp
+      %h3
+        The Local Yelp
+      %section.card
         %p
           %a{ href: '#' }
             Holy donuts also, jelly-filled, and powdered, and iced... spinkles!
           Sweet, sticky, doughy, and straight up delicious... there is nothing
           quite like a donut. Today is National Donut Day. National Donut Day?
           You read that right. National Do...
-          %span.footer
+          %section.footer
             The Local Yelp
+      %p.link
         %a{ href: '#' }
           See more
-      %aside
-        %h3
-          Official Yelp Event
-        %img{ url: '#', alt: 'yogurt and fruit in a coconut split in half' }
-          %p
-            %a{ href: '#' }
-              OYE: Yelp Elite Pau Hana Party!
-            Ahhh "pau hana"... that magical time after work. A time for
-            relaxation, informal...
-            %span.footer
-              Tue, Jul 16, 5:30 pm - 7:30 pm
+    %aside.official-yelp-event
+      %h3
+        Official Yelp Event
+      %section.card
+        %p
           %a{ href: '#' }
-            See all events
-    %div.container.cards
-      %div.full-width-card
-        %img{ url: '', alt: 'Richie W.' }
+            OYE: Yelp Elite Pau Hana Party!
+          Ahhh "pau hana"... that magical time after work. A time for
+          relaxation, informal...
+          %section.footer
+            Tue, Jul 16, 5:30 pm - 7:30 pm
+      %p.link
         %a{ href: '#' }
-          Richie W.
-        %div.person-meta
-          %span
-            4
-          %span
-            67
+          See all events
+    %div.review-of-the-day
+      %h3
+        Review of the Day
+      %section.card
+        %p
           %a{ href: '#' }
-            Elite '19
-          %p
-            Wrote a review for
-            %a{ href: '#' }
-              Walnut Cafe
-          %p.review-header
-            Review of the Day
-          %div.rating
-            %img{ url: '', alt: '4 stars' }
+            Richie W.
+          %div.person-meta
+            =fa_icon 'users'
             %span
-              3/10/2019
+              4
+            =fa_icon 'star'
+            %span
+              67
+            %a.name{ href: '#' }
+              %span.name
+                Elite '19
+            %p
+              Wrote a review for
+              %a{ href: '#' }
+                Walnut Cafe
+            %div.rating
+              %div.rating-box
+                %div.rating{ style: 'width: 90%' }
+              %span.date
+                3/10/2019
           %p.full-width-card-review
             Have eaten at all 3 fabulous locations of the Walnut Cafe, and
             really have to say that they are consistently good across the
@@ -161,270 +233,137 @@
             recommend checking them out here in B...
             %a{ href: '#' }
               Continue reading
-          %a{ href: '#' }
-            Read Previous reviews
-        %aside.recent-collections
-          %ul
-            %li
-              %a{ href: '#' }
-                %img{ url: '', alt: 'food' }
-            %li
-              %a{ href: '#' }
-                My longmont Favorites
-            %li
-              %span
-                14 Places &middot; By
-              %a{ href: '#' }
-                Delaney D.
-          %ul
-            %li
-              %a{ href: '#' }
-                %img{ url: '', alt: 'food' }
-            %li
-              %a{ href: '#' }
-                My longmont Favorites
-            %li
-              %span
-                14 Places &middot; By
-              %a{ href: '#' }
-                Delaney D.
-          %ul
-            %li
-              %a{ href: '#' }
-                %img{ url: '', alt: 'food' }
-            %li
-              %a{ href: '#' }
-                My longmont Favorites
-            %li
-              %span
-                14 Places &middot; By
-              %a{ href: '#' }
-                Delaney D.
-          %a{ href: '#' }
-            Browse more collections
+      %p.link
+        %a{ href: '#' }
+          Read Previous reviews
+    %aside.recent-collection
+      %h3
+        Recent Collections
+      %section.card
+        %ul
+          %li
+            %a{ href: '#' }
+              My longmont Favorites
+          %li
+            %span
+              14 Places &middot; By
+            %a{ href: '#' }
+              Delaney D.
+        %ul
+          %li
+            %a{ href: '#' }
+              Lunch in Longmont
+          %li
+            %span
+              14 Places &middot; By
+            %a{ href: '#' }
+              Dulcie F.
+        %ul
+          %li
+            %a{ href: '#' }
+              Longmont Breweries/Distil...
+          %li
+            %span
+              14 Places &middot; By
+            %a{ href: '#' }
+              Kevin C.
+      %p.link
+        %a{ href: '#' }
+          Browse more collections
+  %section
+    %h3
+      Recent Activity
     %div.recent-activity
-      %h2
-        Recent Activity
-      %div.third-card
+      %div.card
         %header
           %a{ href: '#' }
             BuckeyeinCO..
-          %span
+          %p
             Wrote a review
-        %figure
-          %img{ url: '', alt: 'picture of food' }
-          %figcaption
-            %a{ href: '#' }
+          %a.restaurant-link{ href: '#' }
             Little Tibet
         %div.rating
-          %img{ url: '', alt: '5 stars' }
+          %div.rating-box
+            %div.rating{ style: 'width: 50%' }
         %p
           Delicious food and wonderful friendly staff exceptional clean can't
           wait for my 2nd visit!! Excellent addition to NOBO
-        %ul.reviw-meta
+        %ul.review-meta-links
           %li
-            Useful image
+            %a{ href: '#' }
+              =fa_icon 'lightbulb-o'
           %li
-            Funny image
+            %a{ href: '#' }
+              =fa_icon 'smile-o'
           %li
-            Cool image
+            %a{ href: '#' }
+              =fa_icon 'thumbs-up'
           %li
-            Send a Compliment image
-      %div.third-card
+            %a{ href: '#' }
+              =fa_icon 'trophy'
+      %div.card
         %header
           %a{ href: '#' }
             Jane R.
-          %span
+          %p
             Wrote a review
-        %figure
-          %img{ url: '', alt: 'picture of food' }
-          %figcaption
-            %a{ href: '#' }
+          %a.restaurant-link{ href: '#' }
             Lyons Fork
-        %div.rating
-          %img{ url: '', alt: '1 star' }
+          %div.rating
+            %div.rating-box
+              %div.rating{ style: 'width: 25%' }
         %p
           This is hands down the worst food I have ever eaten! So bad that my
           kids wouldn't even eat the pasta and they will eat pasta out of a
           can! The "pasta sauce" tasted like stale ketchup. None of the
           entr...
-          %a{ href: '#' }
+          %a.trunc-link{ href: '#' }
             Continue reading
-        %ul.reviw-meta
+        %ul.review-meta-links
           %li
-            Useful image
+            %a{ href: '#' }
+              =fa_icon 'lightbulb-o'
           %li
-            Funny image
+            %a{ href: '#' }
+              =fa_icon 'smile-o'
           %li
-            Cool image
+            %a{ href: '#' }
+              =fa_icon 'thumbs-up'
           %li
-            Send a Compliment image
-      %div.third-card.images
+            %a{ href: '#' }
+              =fa_icon 'trophy'
+      %div.card
         %header
           %a{ href: '#' }
-            Jane R.
-          %span
-            Added 5 photos
-          %a{ href: '#' }
-            COllision Brewing Company
-        %figure
-          %a{ href: '#' }
-            %img{ url: '', alt: 'picture of food' }
+            Jon D.
+          %p
+            Wrote a review
+          %a.restaurant-link{ href: '#' }
+            Oscar Blues
+          %div.rating
+            %div.rating-box
+              %div.rating{ style: 'width: 0%' }
+        %p
+          This is hands down the worst food I have ever eaten! So bad that my
+          kids wouldn't even eat the pasta and they will eat pasta out of a
+          can! The "pasta sauce" tasted like stale ketchup. None of the
+          entr...
+          %a.trunc-link{ href: '#' }
+            Continue reading
+        %ul.review-meta-links
+          %li
             %a{ href: '#' }
-              Facebook Like
-        %figure.half
-          %a{ href: '#' }
-            %img{ url: '', alt: 'picture of food' }
+              =fa_icon 'lightbulb-o'
+          %li
             %a{ href: '#' }
-              Facebook Like
-        %figure.half
-          %a{ href: '#' }
-            %img{ url: '', alt: 'picture of food' }
+              =fa_icon 'smile-o'
+          %li
             %a{ href: '#' }
-              Facebook Like
+              =fa_icon 'thumbs-up'
+          %li
+            %a{ href: '#' }
+              =fa_icon 'trophy'
+      %p
         %a{ href: '#' }
-          Show all 5 photos
-      %a{ href: '#' }
-        Show more activity in Longmont
-%section
-  %h2
-    Browse Businesses by Category
-  %a.category.one-quarter{ href: '' }
-    %img{ url: '', alt: 'Eating Utensils' }
-    Restaurants
-  %a.category.one-quarter{ href: '' }
-    %img{ url: '', alt: 'Shopping Bag' }
-    Shopping
-  %a.category.one-quarter{ href: '' }
-    %img{ url: '', alt: 'Martini Glass' }
-    Nightlife
-  %a.category.one-quarter{ href: '' }
-    %img{ url: '', alt: 'Soccer Ball' }
-    Active Life
-  %a.category.one-quarter{ href: '' }
-    %img{ url: '', alt: 'Mirror' }
-    Beauty & Spas
-  %a.category.one-quarter{ href: '' }
-    %img{ url: '', alt: 'Car' }
-    Automotive
-  %a.category.one-quarter{ href: '' }
-    %img{ url: '', alt: 'Wrench' }
-    Home Services
-  %a.category.one-quarter{ href: '' }
-    %img{ url: '', alt: 'more symbol' }
-    More Categories
-%section
-  %h2
-    Yelp Mobile Apps
-  %div.half-card
-    %a{ href: 'http://itunes.apple.com/US/app/yelp' }
-      %img{ url: '', alt: 'iphone, apple watch and ipad' }
-  %div.half-card
-    %a{ href: 'https://play.google.com/store/apps', alt: 'android phone' }
-%footer
-  %h3
-    About
-  %ul.quarter
-    %li
-      %a{ href: '#' }
-        About Yelp
-    %li
-      %a{ href: '#' }
-        Careers
-    %li
-      %a{ href: '#' }
-        Press
-    %li
-      %a{ href: '#' }
-        Investor Relations
-    %li
-      %a{ href: '#' }
-        Content Guidelines
-    %li
-      %a{ href: '#' }
-        Terms of Service
-    %li
-      %a{ href: '#' }
-        Privacy Policy
-    %li
-      %a{ href: '#' }
-        Ad Choices
-  %h3
-    Discover
-  %ul.quarter
-    %li
-      %a{ href: '#' }
-        Yelp Project Cost Guides
-    %li
-      %a{ href: '#' }
-        Collections
-    %li
-      %a{ href: '#' }
-        Talk
-    %li
-      %a{ href: '#' }
-        Events
-    %li
-      %a{ href: '#' }
-        The Local Yelp
-    %li
-      %a{ href: '#' }
-        Yelp Blog
-    %li
-      %a{ href: '#' }
-        Support
-    %li
-      %a{ href: '#' }
-        Yelp Mobile
-    %li
-      %a{ href: '#' }
-        Developers
-    %li
-      %a{ href: '#' }
-        RSS
-  %h3
-    Yelp for Business Owners
-  %ul.quarter
-    %li
-      %a{ href: '#' }
-        Claim your Business Page
-    %li
-      %a{ href: '#' }
-        Advertise on Yelp
-    %li
-      %a{ href: '#' }
-        Yelp Reservations
-    %li
-      %a{ href: '#' }
-        Yelp WiFi
-    %li
-      %a{ href: '#' }
-        Yelp Nowait
-    %li
-      %a{ href: '#' }
-        Business Success Stories
-    %li
-      %a{ href: '#' }
-        Business Support
-    %li
-      %a{ href: '#' }
-        Yelp Blog for Business
-    %li
-      %a{ href: '#' }
-        Yelp Blog for Business
-    %li
-      %a{ href: '#' }
-        Owners
-  %dl
-    %dt
-      %h3
-        Languages
-    %dd
-      %a{ href: '#' }
-        English
-    %dt
-      %h3
-        Countries
-    %dd
-      %a{ href: '#' }
-        United States
+          Show more activity in Longmont
+=render 'shared/footer'

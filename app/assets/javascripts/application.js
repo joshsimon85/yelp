@@ -12,8 +12,10 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+// require turbolinks
 //= require_tree .
 //= require jquery3
 //= require popper
 //= require bootstrap
+
+$('[data-toggle="tooltip"]').tooltip()
