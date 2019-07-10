@@ -1,0 +1,117 @@
+=render 'shared/nav'
+%main.business
+  %section.clearfix
+    %h2
+      Hapa
+    %a.btn.btn-danger{href: '#'}
+      =fa_icon 'star'
+      Write A Review
+  %section
+    %ul.business
+      %li
+        %div.rating
+          %div.rating-box
+            %div.rating{ style: 'width: 50%' }
+          %span
+            5 reviews
+      %li
+        %div.tags
+          $$$
+          %span.middot &middot
+          %a{href: '#'} Sushi
+          %span.middot &middot
+          %a{href: '#'} Restaurant
+          %span.middot &middot
+          %a{href: '#'} Sit down
+      %li
+        %a{href: '#'}
+          =fa_icon 'pencil'
+          Edit This business
+      %li
+        =fa_icon 'phone'
+        303 444 4030
+      %li
+        =fa_icon 'map-marker'
+        Boulder, Colorado
+  %section
+    %h3
+      Reviews for Hapa
+    %ul.user-reviews
+      %li.user-review
+        %ul
+          %li
+            =fa_icon 'user'
+          %li
+            %a{href: '#'} Devin S.
+            Austin, Texas
+            =fa_icon 'building'
+            %span 3
+            =fa_icon 'star'
+            %span 4
+          %li.edit-review
+            %a{href: '#'}
+              =fa_icon 'pencil'
+              Edit Review
+        %ul
+          %li
+            %div.rating
+              %div.rating-box
+                %div.rating{ style: 'width: 50%' }
+              %span 04/21/2019
+            %p
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu. Non sodales neque sodales ut etiam sit amet nisl. Parturient montes nascetur ridiculus mus mauris. Nunc sed augue lacus viverra vitae congue eu. Justo nec ultrices dui sapien. Euismod lacinia at quis risus sed. Amet cursus sit amet dictum. Facilisis mauris sit amet massa vitae tortor condimentum. Quisque egestas diam in arcu. Metus aliquam eleifend mi in nulla posuere.
+      %li.user-review
+        %ul
+          %li
+            =fa_icon 'user'
+          %li
+            %a{href: '#'} Devin S.
+            Austin, Texas
+            =fa_icon 'building'
+            %span 3
+            =fa_icon 'star'
+            %span 4
+          %li.edit-review
+            %a{href: '#'}
+              =fa_icon 'pencil'
+              Edit Review
+        %ul
+          %li
+            %div.rating
+              %div.rating-box
+                %div.rating{ style: 'width: 50%' }
+              %span 04/21/2019
+            %p
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu. Non sodales neque sodales ut etiam sit amet nisl. Parturient montes nascetur ridiculus mus mauris. Nunc sed augue lacus viverra vitae congue eu. Justo nec ultrices dui sapien. Euismod lacinia at quis risus sed. Amet cursus sit amet dictum. Facilisis mauris sit amet massa vitae tortor condimentum. Quisque egestas diam in arcu. Metus aliquam eleifend mi in nulla posuere.
+      %li.user-review
+        %ul
+          %li
+            =fa_icon 'user'
+          %li
+            %a{href: '#'} Devin S.
+            Austin, Texas
+            =fa_icon 'building'
+            %span 3
+            =fa_icon 'star'
+            %span 4
+        %ul
+          %li
+            %div.rating
+              %div.rating-box
+                %div.rating{ style: 'width: 50%' }
+              %span 04/21/2019
+            %p
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu. Non sodales neque sodales ut etiam sit amet nisl. Parturient montes nascetur ridiculus mus mauris. Nunc sed augue lacus viverra vitae congue eu. Justo nec ultrices dui sapien. Euismod lacinia at quis risus sed. Amet cursus sit amet dictum. Facilisis mauris sit amet massa vitae tortor condimentum. Quisque egestas diam in arcu. Metus aliquam eleifend mi in nulla posuere.
+      %nav{aria: {label: 'pagination'}}
+        %ul.pagination
+          %li.page-item.disabled
+            %a.page-link{href: '#', aria: {label: 'Previous'}}
+              %span{ aria: {hidden: true}} &laquo;
+              %span.sr-only Previous
+          %li.page-item.active
+            %a.page-link{href: '#'} 1
+          %li.page-item
+            %a.page-link{href: '#', aria: {label: 'Next'}}
+              %span{aria: {hidden: true}} &raquo;
+              %span.sr-only Next
+=render 'shared/footer'

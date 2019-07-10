@@ -1,0 +1,47 @@
+=render 'shared/nav'
+%main.add-business
+  %section.clearfix
+    %section
+      %h2 Add New Business
+      %form{method: 'post', action: '#'}
+        %dl
+          %dt
+          %dd
+            %input{type: 'text', id: 'name', placeholder: 'Name'}
+          %dt
+          %dd
+            %input{type: 'text', id: 'address_1', placeholder: 'Address 1'}
+          %dt
+          %dd
+            %input{type: 'text', id: 'address_2', placeholder: 'Address 2'}
+          %dt
+          %dd
+            %input{type: 'text', id: 'city', placeholder: 'City'}
+          %dt
+          %dd
+            %input{type: 'text', id: 'state', placeholder: 'State'}
+          %dt
+          %dd
+            %input{type: 'text', id: 'phone', placeholder: 'Phone Number'}
+          %dt
+          %dd
+            %select{id: 'price', required: true}
+              %option{value: ''} Price
+              %option{value: 5} $$$$$
+              %option{value: 4} $$$$
+              %option{value: 3} $$$
+              %option{value: 2} $$
+              %option{value: 1} $
+          %dt
+            %span.asterix *
+            Separate tags with @
+          %dd
+            %input{type: 'text', id: 'tags', placeholder: '@Fast Food @Cheap @Chinese'}
+          %dt
+            %dd
+              %input.btn.btn-danger{type: 'submit', vlaue: 'Submit'}
+            %dd
+              %a.btn.btn-outline-secondary{href: '#'} Cancel
+    %aside.image
+      %img{ src: 'https://s3-media4.fl.yelpcdn.com/assets/2/www/img/7922e77f338d/signup/signup_illustration.png', alt: 'drawing of a business'}
+=render 'shared/footer'

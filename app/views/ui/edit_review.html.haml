@@ -1,0 +1,36 @@
+=render 'shared/nav'
+%main.edit-review
+  %section.clearfix
+    %section
+      %form{action: '#', method: 'post'}
+        %h2
+          Edit your review for
+          %a{href: '#'} Hapa
+        %dl
+          %dt
+            %label{for: 'rating'} Rating
+          %dd
+            %select{id: 'rating'}
+              %option{value: 5, id: 'rating'}
+                &starf; &starf; &starf; &starf; &starf;
+              %option{value: 4}
+                &starf; &starf; &starf; &starf;
+              %option{value: 3}
+                &starf; &starf; &starf;
+              %option{value: 2}
+                &starf; &starf;
+              %option{value: 1}
+                &starf;
+          %dt
+            %label{for: 'review'} Review
+          %dd
+            %textarea{placeholder: 'Review', id: 'review', cols: '47', rows: '10'}
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu. Non sodales neque sodales ut etiam sit amet nisl. Parturient montes nascetur ridiculus mus mauris. Nunc sed augue lacus viverra vitae congue eu. Justo nec ultrices dui sapien. Euismod lacinia at quis risus sed. Amet cursus sit amet dictum. Facilisis mauris sit amet massa vitae tortor condimentum. Quisque egestas diam in arcu. Metus aliquam eleifend mi in nulla posuere.
+          %dt
+            %dd
+              %input.btn.btn-danger{type: 'submit', value: 'Edit'}
+            %dd
+              %a.btn.btn-outline-secondary{href: '#'} Cancel
+    %aside.image
+      %img{ src: 'https://s3-media4.fl.yelpcdn.com/assets/2/www/img/7922e77f338d/signup/signup_illustration.png', alt: 'drawing of a business'}
+=render 'shared/footer'

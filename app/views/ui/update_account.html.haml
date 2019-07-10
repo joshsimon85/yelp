@@ -1,0 +1,28 @@
+=render 'shared/nav'
+%main.edit-user.update
+  %section.clearfix
+    %section
+      %h2
+        Update Your Password
+      %form{action: '#', method: 'post'}
+        %dl
+          %dt
+            %label{for: 'c_pass'} Current Password
+          %dd
+            %input{type: 'password', id: 'c_pass', requried: true}
+          %dt
+            %label{for: 'new_pass'} New Password
+          %dd
+            %input{type: 'password', id: 'new_pass', required: true}
+          %dt
+            %label{for: 'v_pass'} Verify New Password
+          %dd
+            %input{type: 'password', id: 'v_pass', required: true}
+          %dt
+            %dd
+              %input.btn.btn-danger{type: 'submit', value: 'Save Password'}
+            %dd
+              %a.btn.btn-outline-secondary{href: '#'} Cancel
+    %aside.image
+      %img{ src: 'https://s3-media4.fl.yelpcdn.com/assets/2/www/img/7922e77f338d/signup/signup_illustration.png', alt: 'drawing of a business'}
+=render 'shared/footer'

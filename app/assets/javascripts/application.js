@@ -18,4 +18,6 @@
 //= require popper
 //= require bootstrap
 
-$('[data-toggle="tooltip"]').tooltip()
+$(function() {
+  $('[data-toggle="tooltip"]').tooltip();
+});

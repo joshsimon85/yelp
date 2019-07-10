@@ -4,6 +4,12 @@ ul {
   padding-inline-start: 0;
 }
 
+textarea {
+  border: 1px solid #cecece;
+  height: auto;
+  padding: 5px;
+}
+
 input:hover, input:focus {
   outline: none;
 }
@@ -34,6 +40,10 @@ h3 {
   margin-bottom: 15px;
   margin-top: 45px;
   text-align: center;
+}
+
+.navbar-nav form label:nth-of-type(2) {
+  border-left: 2px solid #cecece;
 }
 
 .flex-quarter {
@@ -632,4 +642,583 @@ dd.name {
 
 .content-left {
   text-align: left;
+}
+
+/* user nav bar */
+.navbar {
+  background: #D32323;
+}
+
+.navbar-nav {
+  margin: 0 auto;
+}
+
+#nav-logo a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 30px;
+}
+
+.nav-item:nth-of-type(1n+2) {
+  margin-top: 9px;
+}
+
+.nav-item form label {
+  background: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px 0 5px 5px;
+}
+
+.nav-item label[for="find-q"] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.nav-item form input {
+  border: none;
+  font-size: 16px;
+  padding: 5px 0 5px 15px;
+  width: 250px;
+}
+
+.nav-item input[type="submit"] {
+  background: #AC1E1C;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  color: #fff;
+  padding-right: 10px;
+  width: auto;
+}
+
+.nav-item:nth-of-type(2) form {
+  font-size: 0;
+}
+
+.nav-item:nth-of-type(1n+3) {
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 5px;
+}
+
+.nav-item i {
+  color: #fff;
+  font-size: 20px;
+}
+
+#dropdownMenuLink {
+  text-decoration: none;
+}
+
+#dropdownMenuLink i {
+  color: #bdbcbc;
+}
+
+.nav-item:last-of-type {
+  background: #fff;
+  border-radius: 4px;
+  height: 33px;
+  padding: 5px 0 0 0;
+  margin-left: 20px;
+  width: 60px;
+  text-align: center;
+}
+
+#dropdownMenuLink::after {
+  color: #bdbcbc
+}
+
+.dropdown-menu a i {
+  color: #bdbcbc;
+}
+
+.dropdown-menu section:first-of-type, .dropdown-menu section:nth-of-type(2) {
+  border-bottom: 1px solid #cecece;
+}
+
+.dropdown-menu section:first-of-type li {
+  display: inline-block;
+}
+
+.dropdown-menu dd, .dropdown-menu dt {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.dropdown-menu section:first-of-type li:first-of-type {
+  vertical-align: top;
+  width: 35%;
+}
+
+.dropdown-menu section:first-of-type li:first-of-type i {
+  font-size: 50px;
+  padding-left: 10px;
+}
+
+.dropdown-menu section:first-of-type li:nth-of-type(2) i {
+  font-size: 50px;
+  padding-left: 10px;
+}
+
+.dropdown-menu section:first-of-type dt:nth-of-type(2) + dd {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.dropdown-menu section:first-of-type dd:last-of-type {
+  font-size: 0px;
+}
+
+.dropdown-menu section:first-of-type dd:last-of-type li {
+  display: inline-block;
+  font-size: 12px;
+  width: 46%;
+}
+
+.dropdown-menu section:first-of-type dd:last-of-type li i {
+  color: yellow;
+  font-size: 16px;
+  padding-left: 0;
+}
+
+.dropdown-menu section:first-of-type dd:last-of-type li:first-of-type {
+  margin-right: 8%;
+}
+
+.dropdown-menu section:nth-of-type(2) a {
+  color: #007bff;
+}
+
+.dropdown-menu section:nth-of-type(2) a:last-of-type {
+  padding-left: 22px;
+}
+
+.dropdown-menu section:last-of-type {
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+.dropdown-menu section:last-of-type a {
+  margin-left: 25px;
+  text-decoration: none;
+}
+
+/* user businesses and all reviews */
+main.businesses {
+  width: 980px;
+  margin: 40px auto 0 auto;
+}
+
+main.businesses > p {
+  float: right;
+  margin-top: 5px;
+}
+
+main.businesses > ul li header h2 {
+  color: #000;
+  text-align: left;
+  padding: 0;
+}
+
+main.businesses > ul li header {
+  display: inline-block;
+}
+
+main.businesses > ul li header a {
+  margin-left: 20px;
+}
+
+main.businesses > ul li aside {
+  float: right;
+  margin-top: -5px;
+}
+
+main.businesses > ul > li:first-of-type {
+  margin-top: 40px;
+}
+
+main.businesses > ul > li {
+  border: 1px solid #cecece;
+  border-radius: 4px;
+  margin-bottom: 40px;
+  padding: 20px;
+}
+
+main.businesses > ul > li:last-of-type {
+  margin-bottom: 10px;
+}
+
+main.businesses nav:last-of-type {
+  margin-bottom: 40px;
+}
+
+main.businesses .rating-box {
+  padding-left: 0;
+}
+
+main.businesses .rating {
+  left: 0;
+}
+
+main.businesses .tags {
+  color: #bdbcbc;
+  font-weight: bold;
+}
+
+main.businesses span.middot {
+  font-weight: 800;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+main.businesses span.middot + a {
+  font-weight: normal;
+  margin-left: 0;
+}
+
+main.businesses section > p {
+  margin-top: 15px;
+}
+
+/* add a business and edit business and edit review */
+main.add-business, main.edit-business, main.edit-review {
+  margin: 0 auto;
+  width: 980px;
+}
+
+main.add-business input, main.edit-business input, main.edit-review input {
+  border: 1px solid #cecece;
+  border-radius: 4px;
+  padding: 5px;
+  width: 400px;
+}
+
+main.add-business form, main.edit-business form, main.edit-review form {
+  float: left;
+}
+
+main.add-business aside {
+  float: right;
+  margin-top: 50px;
+}
+
+main.add-business select, main.edit-business select, main.edit-review select {
+  width: 150px;
+}
+
+main.add-business select:invalid {
+  color: #6c757d;
+}
+
+main.add-business select, main.edit-business select, main.edit-review select {
+  background: #fff;
+  border: 1px solid #cecece;
+  height: 33px;
+}
+
+main.add-business select:focus, main.edit-business select:focus, main.edit-review select:focus {
+  outline: none;
+}
+
+main.add-business dt {
+  color: #6c757d;
+  font-size: 14px;
+  font-weight: normal;
+  padding-bottom: 3px;
+  text-indent: 10px;
+  position: relative;
+}
+
+main.add-business span.asterix {
+  position: absolute;
+  left: -10px;
+  top: 2px;
+}
+
+main.add-business a, main.edit-business a, main.edit-review a {
+  height: 33px;
+  width: 400px;
+}
+
+main.add-business .clearfix, main.edit-business .clearfix, main.edit-review .clearfix {
+  margin-bottom: 40px;
+}
+
+/* business */
+main.business {
+  margin: 50px auto;
+  width: 980px;
+}
+
+main.business nav {
+  margin-top: 10px;
+}
+.clearfix > h2 {
+  color: #000;
+  float: left;
+  font-size: 35px;
+  margin-bottom: 0;
+  padding-top: 0;
+}
+
+.clearfix > a {
+  float: right;
+}
+
+.rating-box + span {
+  color: #6c757d;
+}
+
+main.business .rating-box {
+  margin-right: 5px;
+  padding-left: 0;
+}
+
+main.business .rating {
+  left: 0;
+}
+
+main.business section:nth-of-type(2) {
+  border-bottom: 1px solid #cecece;
+}
+
+.tags {
+  color: #6c757d;
+}
+
+ul.business > li:nth-of-type(1n+3) {
+  color: #6c757d;
+  margin-top: 7px;
+}
+
+ul.business > li a {
+  color: #6c757d;
+}
+
+main.business h3 {
+  color: #000;
+  font-size: 22px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+main.business .user-reviews > li {
+  border: 1px solid #cecece;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+main.business .user-review li {
+  display: inline-block;
+  vertical-align: middle
+}
+
+main.business .user-review ul:first-of-type li:first-of-type {
+  color: #6c757d;
+  font-size: 50px;
+}
+
+main.business .user-review ul:first-of-type li:nth-of-type(1n+2) a {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+main.business .user-review ul:first-of-type li:nth-of-type(1n+2) i {
+  color: #6c757d;
+  margin-left: 5px;
+}
+
+main.business .user-review ul:first-of-type li:nth-of-type(1n+2) i + span {
+  color: #000;
+}
+
+main.business .user-review .edit-review {
+  float: right;
+  margin-top: 25px;
+}
+
+main.business .user-review p {
+  margin-top: 5px;
+}
+
+main.business .user-review:nth-of-type(1n+2) {
+  margin-top: 25px;
+}
+
+/* edit business and edit review */
+
+.edit-business dt, .edit-review dt {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.edit-business label, .edit-review label {
+  margin-bottom: 0;
+}
+
+.edit-business .tags {
+  position: relative;
+}
+
+.edit-business .asterix {
+  position: absolute;
+  top: 3px;
+  left: 40px;
+}
+
+.edit-business .asterix + span {
+  text-decoration: underline;
+  padding-left: 15px;
+}
+
+.edit-business .clearfix {
+  margin-top: 40px;
+}
+
+main.edit-business aside {
+  float: right;
+  margin-top: 125px;
+}
+
+main.edit-business h2 {
+  padding-top: 0;
+}
+
+/* edit review */
+main.edit-review aside {
+  float: right;
+  margin-top: 100px;
+}
+
+#rating:invalid {
+  color: #6c757d;;
+}
+
+/* reviews */
+.business.float-right {
+  float: right;
+}
+
+.business.float-left {
+  float: left;
+}
+
+.reviews {
+  margin-top: 20px;
+}
+
+/* User */
+main.user {
+  margin: 0 auto;
+  width: 980px;
+}
+
+main.user > .clearfix > section {
+  float: left;
+}
+
+main.user aside.bio {
+  float: right;
+}
+
+main.user aside.bio h3 {
+  color: #dc3545;
+  font-size: 18px;
+  margin-top: 45px;
+  text-align: center;
+}
+
+main.user dl {
+  border: 1px solid #cecece;
+  padding: 5px;
+}
+
+main.user h3 {
+  font-size: 18px;
+}
+
+main.user > .clearfix ul li {
+  display: inline-block;
+  margin-right: 7px;
+}
+
+main.user > .clearfix ul li i {
+  color: #ffc11e;
+  font-size: 16px;
+}
+
+main.user nav:last-of-type {
+  margin-bottom: 50px;
+}
+
+main.user .no-reviews {
+  color: #dc3545;
+  font-size: 20px;
+  text-align: center;
+}
+
+/* edit user */
+main.edit-user {
+  margin: 0 auto;
+  width: 980px;
+}
+
+main.edit-user .clearfix > section:first-of-type {
+  float: left;
+}
+
+main.edit-user aside {
+  float: right;
+  margin-top: 180px;
+}
+
+main.edit-user input {
+  border: 1px solid #cecece;
+  border-radius: 4px;
+  padding: 5px;
+  width: 400px;
+}
+
+main.edit-user select:invalid {
+  color: #6c757d;
+}
+
+main.edit-user select {
+  background: #fff;
+  border: 1px solid #cecece;
+  height: 33px;
+  width: 131px;
+}
+
+main.edit-user select:focus {
+  outline: none;
+}
+
+main.edit-user a {
+  height: 33px;
+  width: 400px;
+}
+
+main.edit-user .inline {
+  display: inline-block;
+}
+
+main.edit-user dt {
+  font-weight: normal;
+}
+
+main.edit-user span {
+  color: #6c757d;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+/* update account */
+
+main.edit-user.update aside {
+  margin-top: 60px;
+}
+
+main.edit-user.update .clearfix > section {
+  margin-bottom: 50px;
 }

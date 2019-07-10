@@ -1,0 +1,57 @@
+%nav.navbar.navbar-expand
+  %ul.navbar-nav
+    %li.nav-item
+      %h1{id: 'nav-logo'}
+        %a{href: '#'} yELp
+    %li.nav-item
+      %form{ method: 'get', action: '#' }
+        %label{ for: 'find-q' }
+          Find
+        %input{ type: 'text', name: 'find_query', id: 'find-q', placeholder: 'movers, burgers...' }
+        %label{ for: 'near-q'}
+          Near
+        %input{ type: 'text', name: 'near_query', id: 'near-q', placeholder: 'Longmont, CO'}
+        %input{ type: 'submit', value: 'Search'}
+    %li.nav-item
+      %a{href: '#', data: {toggle: 'tooltip', placement: 'bottom', container: 'body'}, title: 'See All Buisnesses'}
+        =fa_icon 'building'
+    %li.nav-item
+      %a{href: '#', data: {toggle: 'tooltip', placement: 'bottom'}, title: 'See All Reviews'}
+        =fa_icon 'star'
+    %li.dropdown.nav-item
+      %a.dropdown-toggle{href: '#', role: 'button', id: 'dropdownMenuLink', data: {toggle: 'dropdown'}}
+        =fa_icon 'user'
+      %div.dropdown-menu{ aria: {labelledby: 'dropdownMenuLink'}}
+        %section
+          %ul
+            %li
+              %a{href: '#'}
+                =fa_icon 'user'
+            %li
+              %dl
+                %dt
+                %dd
+                  %a{href: '#'}
+                    Devin S.
+                %dt
+                %dd
+                  Austin
+                %dt
+                %dd
+                  %ul
+                    %li
+                      =fa_icon 'building'
+                      0
+                    %li
+                      =fa_icon 'star'
+                      0
+        %section
+          %a.dropdown-item{href: '#'}
+            =fa_icon 'user'
+            About Me
+          %a.dropdown-item{href: '#'}
+            =fa_icon 'gear'
+            Account Settings
+        %section
+          %a{href: '#'}
+            Log Out
