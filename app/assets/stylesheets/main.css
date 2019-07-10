@@ -534,7 +534,7 @@ footer header h3, footer dt h3 {
 /* login */
 .logo-bar {
   background-color: #D32323;
-  margin-bottom: 150px;
+  margin-bottom: 50px;
   padding: 15px 0;
 }
 
@@ -548,7 +548,7 @@ footer header h3, footer dt h3 {
   display: grid;
   grid-column-gap: 100px;
   grid-template-columns: repeat(2, 1fr);
-  margin-bottom: 150px;
+  margin-bottom: 50px;
 }
 
 .disclaimer {
