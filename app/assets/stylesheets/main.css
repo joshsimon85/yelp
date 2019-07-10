@@ -120,6 +120,27 @@ h3 {
   content: "\f005 \f005 \f005 \f005 \f005"
 }
 
+.alert > a {
+  position: relative;
+  top: 6px;
+}
+
+ul.nav.alert-nav {
+  position: relative;
+  top: 10px;
+}
+
+ul.nav.alert-nav li:last-of-type {
+  margin-left: 15px;
+}
+
+#close > i{
+  cursor: pointer;
+  font-size: 16px;
+  top: 7px;
+  position: relative;
+}
+
 /* Hero Section */
 .alert-nav {
   font-size: 12px;
@@ -128,13 +149,6 @@ h3 {
 .alert-nav li a {
   padding-right: 0;
   margin-right: 0;
-}
-
-.alert-nav .close {
-  border: none;
-  color: black;
-  padding: 0;
-  display: inline-block;
 }
 
 .hero .button {
