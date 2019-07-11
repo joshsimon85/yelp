@@ -1,0 +1,38 @@
+%header.logo-bar
+  %h1{ id: 'logo' }
+    %a{ href: '#' }
+      yELp
+=render 'shared/flash_notices'
+%main.account-form
+  %section.account
+    %div.credentials
+      %h2
+        Log In to Yelp
+      %p
+        %span.bold New to Yelp?
+        %a{ href: '#' }
+          Sign Up
+      %p.disclaimer
+        By logging in, you agree to
+        %a{href: '#'} Terms of Service
+        and
+        =succeed '.' do
+          %a{href: '#'} Privacy Policy
+      =form_tag(sign_in_path, method: :post) do
+        %dl
+          %dt
+          %dd
+            =text_field_tag('email', nil, { placeholder: 'Email', required: true })
+          %dt
+          %dd
+            =password_field_tag('password', nil, { placeholder: 'Password', required: 'true' })
+          %dt
+          %dd
+            =submit_tag 'Log In'
+        %p
+        %span.small New to Yelp?
+        %a{href: '#'}
+          Sign up
+  %aside.image
+    %img{ src: 'https://s3-media4.fl.yelpcdn.com/assets/2/www/img/7922e77f338d/signup/signup_illustration.png', alt: 'drawing of a business'}
+=render 'shared/footer'

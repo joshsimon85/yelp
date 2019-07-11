@@ -4,6 +4,20 @@ ul {
   padding-inline-start: 0;
 }
 
+.flash .alert {
+  margin-bottom: 0;
+}
+
+.flash .close i {
+  font-size: 16px;
+  position: relative;
+  top: -8px;
+}
+
+.flash .alert-success .close i {
+  top: -3px;
+}
+
 textarea {
   border: 1px solid #cecece;
   height: auto;
@@ -534,7 +548,6 @@ footer header h3, footer dt h3 {
 /* login */
 .logo-bar {
   background-color: #D32323;
-  margin-bottom: 50px;
   padding: 15px 0;
 }
 
@@ -542,6 +555,10 @@ footer header h3, footer dt h3 {
   font-size: 30px;
   margin-bottom: 0;
   margin-top: 0;
+}
+
+main.account-form {
+  margin-top: 50px;
 }
 
 .account-form {

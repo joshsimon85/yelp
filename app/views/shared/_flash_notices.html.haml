@@ -1,0 +1,14 @@
+%div.text-center.flash
+  -flash.each do |k, v|
+    -if k == 'error'
+      .alert.alert-danger.alert-dismisible.fade.show{role: 'alert'}
+        =v
+        %a.close{data: {dismiss: 'alert'}, aria: {label: 'close'}}
+          %span{aria: {hidden: 'true'}}
+            =fa_icon 'close'
+    -else
+      .alert.alert-success.alert-dismissible.fade.show{role: 'alert'}
+        =v
+        %a.close{data: {dismiss: 'alert'}, aria: {label: 'close'}}
+          %span{aria: {hidden: 'true'}}
+            =fa_icon 'close'

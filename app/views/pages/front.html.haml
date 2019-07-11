@@ -1,0 +1,366 @@
+=render 'shared/upper_notice'
+%section.hero
+  %nav
+    %ul.hero-nav
+      %li
+        %a{ href: '#' }
+          Write a Review
+      %li
+        %a{ href: '#' }
+          Events
+      %li
+        %a{ href: '#' }
+          Talk
+    %ul.hero-login
+      %li
+        =link_to 'Log In', sign_in_path
+      %li
+        =link_to 'Sign Up', register_path, {class: 'button'}
+  %h1{ id: 'logo' }
+    =link_to 'yELp', root_path
+  %form{ method: 'get', action: '#' }
+    %label{ for: 'find-q' }
+      Find
+      %input{ type: 'text', name: 'find_query', id: 'find-q', placeholder: 'movers, burgers, bars, spas...' }
+    %label{ for: 'near-q'}
+      Near
+      %input{ type: 'text', name: 'near_query', id: 'near-q', placeholder: 'Longmont, CO'}
+    %input{ type: 'submit', value: 'Search'}
+  %ul.sub-nav
+    %li
+      =fa_icon 'truck'
+      %a{ href: '#' }
+        Movers
+    %li
+      =fa_icon 'cutlery'
+      %a{ href: '#' }
+        Restaurants
+    %li
+      =fa_icon 'home'
+      %a{ href: '#' }
+        Home Services
+      =fa_icon 'caret-down'
+    %li
+      =fa_icon 'plane'
+      %a{ href: '#' }
+        Delivery
+  %div.photo-credit
+    %a{ href: '/biz/revival-minneapolis' }
+      Revival
+  %p.photo-credit
+    Photo by
+    %a{ href: '#' }
+      Ashley C.
+%section.best-in-town
+  %h2
+    Find the Best Businesses in Town
+  %ul.flex-quarter
+    %li.card.content-center
+      %figure
+        %a{ href: '#' }
+          %img{ src: '/assets/dentist_chair.jpeg', alt: 'dentist chair' }
+          %figcaption
+            Dentists
+    %li.card.content-center
+      %figure
+        %a{ href: '#' }
+          %img{ src: '/assets/phone_repair.jpeg', alt: 'phone being repaired' }
+          %figcaption
+            Phone Repair
+    %li.card.content-center
+      %figure
+        %a{ href: '#' }
+          %img{ src: '/assets/dry_cleaning.jpeg', alt: 'clothes hanging to be dry cleaned' }
+          %figcaption
+            Dry Cleaning
+    %li.card.content-center
+      %figure
+        %a{ href: '#' }
+          %img{ src: '/assets/massage_chair.jpeg', alt: 'massage chair' }
+          %figcaption
+            Massage
+%main
+  %section.yelp-area
+    %h2
+      Yelp Longmont
+    %ul.cities
+      %li
+        %a{ href: '#' }
+          Washington
+      %li
+        %a{ href: '#' }
+          San Francisco
+      %li
+        %a{ href: '#' }
+          New York
+      %li
+        %a{ href: '#' }
+          San Jose
+      %li
+        %a{ href: '#' }
+          Los Angeles
+      %li
+        %a{href: '#' }
+          Chicago
+      %li
+        %a{href: '#' }
+          =fa_icon 'search'
+          More Cities
+  %section.new-businesses
+    %h3
+      Hot & New Businesses
+    %ul.flex-third
+      %li.card
+        %a{ href: '#' }
+          %img{ src: '/assets/salad.jpg', alt: 'food' }
+        %a{ href: '#' }
+          Grazie Grazie
+        %div.rating
+          %div.rating-box
+            %div.rating{ style: 'width: 50%' }
+          %span
+            37 reviews
+        %p
+          $$, Seafood, Fish & Chips, Tacos
+        %p
+          Ballston
+        %p
+          =fa_icon 'fire'
+          Opened 4 weeks ago
+      %li.card
+        %a{ href: '#' }
+          %img{ src: '/assets/pizza.jpeg', alt: 'food' }
+        %a{ href: '#' }
+          Grazie Grazie
+        %div.rating
+          %div.rating-box
+            %div.rating{ style: 'width: 90%' }
+          %span
+            37 reviews
+        %p
+          $$, Seafood, Fish & Chips, Tacos
+        %p
+          Ballston
+        %p
+          =fa_icon 'fire'
+          Opened 4 weeks ago
+      %li.card
+        %a{ href: '#' }
+          %img{ src: '/assets/hamburger.jpeg', alt: 'food' }
+        %a{ href: '#' }
+          Grazie Grazie
+        %div.rating
+          %div.rating-box
+            %div.rating{ style: 'width: 25%' }
+          %span
+            37 reviews
+        %p
+          $$, Seafood, Fish & Chips, Tacos
+        %p
+          Clarendon
+        %p
+          =fa_icon 'fire'
+          Opened 2 weeks ago
+    %p
+      %a{ href: '#' }
+        See more hot and new businesses
+  %section.highlight-reel
+    %div.local-yelp
+      %h3
+        The Local Yelp
+      %section.card
+        %p
+          %a{ href: '#' }
+            Holy donuts also, jelly-filled, and powdered, and iced... spinkles!
+          Sweet, sticky, doughy, and straight up delicious... there is nothing
+          quite like a donut. Today is National Donut Day. National Donut Day?
+          You read that right. National Do...
+          %section.footer
+            The Local Yelp
+      %p.link
+        %a{ href: '#' }
+          See more
+    %aside.official-yelp-event
+      %h3
+        Official Yelp Event
+      %section.card
+        %p
+          %a{ href: '#' }
+            OYE: Yelp Elite Pau Hana Party!
+          Ahhh "pau hana"... that magical time after work. A time for
+          relaxation, informal...
+          %section.footer
+            Tue, Jul 16, 5:30 pm - 7:30 pm
+      %p.link
+        %a{ href: '#' }
+          See all events
+    %div.review-of-the-day
+      %h3
+        Review of the Day
+      %section.card
+        %p
+          %a{ href: '#' }
+            Richie W.
+          %div.person-meta
+            =fa_icon 'users'
+            %span
+              4
+            =fa_icon 'star'
+            %span
+              67
+            %a.name{ href: '#' }
+              %span.name
+                Elite '19
+            %p
+              Wrote a review for
+              %a{ href: '#' }
+                Walnut Cafe
+            %div.rating
+              %div.rating-box
+                %div.rating{ style: 'width: 90%' }
+              %span.date
+                3/10/2019
+          %p.full-width-card-review
+            Have eaten at all 3 fabulous locations of the Walnut Cafe, and
+            really have to say that they are consistently good across the
+            board. Delicious, varied menu with generous portions - something
+            for every taste. Fun and casual environment - everyone is made
+            to feel welcomed. The staff are all fantastic, friendly, engaging,
+            and damn good at their jobs. Really love this place and highly
+            recommend checking them out here in B...
+            %a{ href: '#' }
+              Continue reading
+      %p.link
+        %a{ href: '#' }
+          Read Previous reviews
+    %aside.recent-collection
+      %h3
+        Recent Collections
+      %section.card
+        %ul
+          %li
+            %a{ href: '#' }
+              My longmont Favorites
+          %li
+            %span
+              14 Places &middot; By
+            %a{ href: '#' }
+              Delaney D.
+        %ul
+          %li
+            %a{ href: '#' }
+              Lunch in Longmont
+          %li
+            %span
+              14 Places &middot; By
+            %a{ href: '#' }
+              Dulcie F.
+        %ul
+          %li
+            %a{ href: '#' }
+              Longmont Breweries/Distil...
+          %li
+            %span
+              14 Places &middot; By
+            %a{ href: '#' }
+              Kevin C.
+      %p.link
+        %a{ href: '#' }
+          Browse more collections
+  %section
+    %h3
+      Recent Activity
+    %div.recent-activity
+      %div.card
+        %header
+          %a{ href: '#' }
+            BuckeyeinCO..
+          %p
+            Wrote a review
+          %a.restaurant-link{ href: '#' }
+            Little Tibet
+        %div.rating
+          %div.rating-box
+            %div.rating{ style: 'width: 50%' }
+        %p
+          Delicious food and wonderful friendly staff exceptional clean can't
+          wait for my 2nd visit!! Excellent addition to NOBO
+        %ul.review-meta-links
+          %li
+            %a{ href: '#' }
+              =fa_icon 'lightbulb-o'
+          %li
+            %a{ href: '#' }
+              =fa_icon 'smile-o'
+          %li
+            %a{ href: '#' }
+              =fa_icon 'thumbs-up'
+          %li
+            %a{ href: '#' }
+              =fa_icon 'trophy'
+      %div.card
+        %header
+          %a{ href: '#' }
+            Jane R.
+          %p
+            Wrote a review
+          %a.restaurant-link{ href: '#' }
+            Lyons Fork
+          %div.rating
+            %div.rating-box
+              %div.rating{ style: 'width: 25%' }
+        %p
+          This is hands down the worst food I have ever eaten! So bad that my
+          kids wouldn't even eat the pasta and they will eat pasta out of a
+          can! The "pasta sauce" tasted like stale ketchup. None of the
+          entr...
+          %a.trunc-link{ href: '#' }
+            Continue reading
+        %ul.review-meta-links
+          %li
+            %a{ href: '#' }
+              =fa_icon 'lightbulb-o'
+          %li
+            %a{ href: '#' }
+              =fa_icon 'smile-o'
+          %li
+            %a{ href: '#' }
+              =fa_icon 'thumbs-up'
+          %li
+            %a{ href: '#' }
+              =fa_icon 'trophy'
+      %div.card
+        %header
+          %a{ href: '#' }
+            Jon D.
+          %p
+            Wrote a review
+          %a.restaurant-link{ href: '#' }
+            Oscar Blues
+          %div.rating
+            %div.rating-box
+              %div.rating{ style: 'width: 0%' }
+        %p
+          This is hands down the worst food I have ever eaten! So bad that my
+          kids wouldn't even eat the pasta and they will eat pasta out of a
+          can! The "pasta sauce" tasted like stale ketchup. None of the
+          entr...
+          %a.trunc-link{ href: '#' }
+            Continue reading
+        %ul.review-meta-links
+          %li
+            %a{ href: '#' }
+              =fa_icon 'lightbulb-o'
+          %li
+            %a{ href: '#' }
+              =fa_icon 'smile-o'
+          %li
+            %a{ href: '#' }
+              =fa_icon 'thumbs-up'
+          %li
+            %a{ href: '#' }
+              =fa_icon 'trophy'
+      %p
+        %a{ href: '#' }
+          Show more activity in Longmont
+=render 'shared/footer'
