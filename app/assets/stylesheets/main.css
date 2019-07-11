@@ -854,11 +854,9 @@ main.businesses > ul li header h2 {
 main.businesses > ul li header {
   display: inline-block;
 }
-
-main.businesses > ul li header a {
+main.businesses > ul li header h2 > a:last-of-type {
   margin-left: 20px;
 }
-
 main.businesses > ul li aside {
   float: right;
   margin-top: -5px;

@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'support/macros'
 
 RSpec.describe SessionsController do
   let(:user) { Fabricate(:user) }
@@ -30,6 +31,8 @@ RSpec.describe SessionsController do
   end
 
   describe 'user logs out' do
+    before { set_current_user }
+
     it 'sets the flash message' do
       get :destroy
       expect(flash[:success]).to include('You have logged out!')
