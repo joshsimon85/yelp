@@ -1,10 +1,9 @@
 -if logged_in?
   =render 'shared/nav'
 %main.businesses
-  %a.btn.btn-outline-danger{href: '#'}
-    + Add New Business
+  =link_to '+ Add New Business', '#', {class: 'btn btn-outline-danger'}
   %p
-    Showing 1 to 8 of 8
+    Showing 1 to 5 of #{@count}
   %ul
     -@businesses.each do |business|
       %li
@@ -12,7 +11,7 @@
           %h2
             =link_to business.name, business_path(business)
             -if logged_in?
-              =link_to 'Write A Review', '#', {class: 'btn btn-danger'}
+              =link_to 'Write A Review', '#', {class: 'btn btn-danger', id: review-link}
               =fa_icon 'star'
           %section
             %div.rating
@@ -21,66 +20,42 @@
               %span
                 5 reviews
               %div.tags
-                $$$
-                %span.middot &middot
-                %a{href: '#'} Sushi
-                %span.middot &middot
-                %a{href: '#'} Restaurant
-                %span.middot &middot
-                %a{href: '#'} Sit down
-            %p
-              Easily the best sushi in Boulder. ...
-              %a{href: '#'} Read More
+                -if business.price
+                  =create_price_tag(business.price)
+                  %span.middot &middot
+                -if business.tags
+                  -tags = create_tags(business.tags)
+                  -tags.each_with_index do |tag, index|
+                    =link_to tag, '#'
+                    -if index < tags.length - 1
+                      %span.middot &middot
+            -if business.description.length > 250
+              %p.truncated
+                =truncate_text(business.description, 220)
+                =link_to 'Read More', nil, {class: 'full-text-link'}
+              %p.full-text
+                #{business.description}
+                =link_to 'Read Less', nil, {class: 'show-less-link'}
+            -else
+              %p
+                =business.description
         %aside.meta
           %ul
             %li
-              720-333-9405
+              =format_phone(business.phone)
             %li
-              Boulder
+              =business.city.capitalize
             %li
-              Colorado
-    %li
-      %header
-        %h2
-          2.
-          %a{href: '#'} 5 Guys
-          %a.btn.btn-danger{href: '#'}
-            =fa_icon 'star'
-            Write A Review
-        %section
-          %div.rating
-            %div.rating-box
-              %div.rating{ style: 'width: 90%' }
-            %span
-              4 reviews
-          %div.tags
-            $$
-            %span &middot
-            %a{href: '#'} Burgers
-            %span &middot
-            %a{href: '#'} Restaurant
-            %span &middot
-            %a{href: '#'} Fast Food
-        %section
-          %p
-            Easily the best fast food burgers in Denver. ...
-            %a{href: '#'} Read More
-      %aside.meta
-        %ul
-          %li
-            720-333-9405
-          %li
-            Denver
-          %li
-            Colorado
+              =business.state.capitalize
   %nav{aria: {label: 'pagination'}}
     %ul.pagination
       %li.page-item.disabled
         %a.page-link{href: '#', aria: {label: 'Previous'}}
           %span{ aria: {hidden: true}} &laquo;
           %span.sr-only Previous
-      %li.page-item.active
-        %a.page-link{href: '#'} 1
+      -(@count / 5.0).ceil.times do |num|
+        %li.page-item
+          =link_to "#{num + 1}", businesses_path(page: "#{num + 1}"), {class: 'page-link'}
       %li.page-item
         %a.page-link{href: '#', aria: {label: 'Next'}}
           %span{aria: {hidden: true}} &raquo;

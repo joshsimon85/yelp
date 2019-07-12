@@ -15,7 +15,8 @@ hapa = Business.create({
   state: 'Colorado',
   phone: "720-444-#{Faker::PhoneNumber.subscriber_number}",
   price: (1..5).to_a.sample,
-  tags: '@sushi @sit down'
+  description: Faker::Lorem.paragraphs((1..30).to_a.sample).join(' '),
+  tags: '@sushi, @sit down'
 })
 
 five_guys = Business.create({
@@ -25,7 +26,8 @@ five_guys = Business.create({
   state: 'Colorado',
   phone: "720-444-#{Faker::PhoneNumber.subscriber_number}",
   price: (1..5).to_a.sample,
-  tags: '@burgers @beer @sit down'
+  description: Faker::Lorem.paragraphs((1..30).to_a.sample).join(' '),
+  tags: '@burgers, @beer, @sit down'
 })
 
 mcdonalds = Business.create({
@@ -36,7 +38,8 @@ mcdonalds = Business.create({
   state: 'Colorado',
   phone: "720-444-#{Faker::PhoneNumber.subscriber_number}",
   price: (1..5).to_a.sample,
-  tags: '@fastfood @burgers'
+  description: Faker::Lorem.paragraphs((1..30).to_a.sample).join(' '),
+  tags: '@fastfood, @burgers'
 })
 
 burger_king = Business.create({
@@ -47,7 +50,8 @@ burger_king = Business.create({
   state: 'Colorado',
   phone: "720-444-#{Faker::PhoneNumber.subscriber_number}",
   price: (1..5).to_a.sample,
-  tags: '@fastfood @burger'
+  description: Faker::Lorem.paragraphs((1..30).to_a.sample).join(' '),
+  tags: '@fastfood, @burger'
 })
 
 chipotle = Business.create({
@@ -58,7 +62,8 @@ chipotle = Business.create({
   state: 'Colorado',
   phone: "720-444-#{Faker::PhoneNumber.subscriber_number}",
   price: (1..5).to_a.sample,
-  tags: '@burriot @sit down'
+  description: Faker::Lorem.paragraphs((1..30).to_a.sample).join(' '),
+  tags: '@burriot, @sit down'
 })
 
 lyons_vet = Business.create({
@@ -68,7 +73,8 @@ lyons_vet = Business.create({
   city: 'Lyons',
   state: 'Colorado',
   phone: "720-444-#{Faker::PhoneNumber.subscriber_number}",
-  price: (1..5).to_a.sample
+  price: (1..5).to_a.sample,
+  description: Faker::Lorem.paragraphs((1..3).to_a.sample).join(' ')
 })
 
 home_depot = Business.create({
@@ -79,7 +85,8 @@ home_depot = Business.create({
   state: 'Colorado',
   phone: "720-444-#{Faker::PhoneNumber.subscriber_number}",
   price: (1..5).to_a.sample,
-  tags: '@home improvement'
+  description: Faker::Lorem.paragraphs((1..3).to_a.sample).join(' '),
+  tags: '@home, improvement'
 })
 
 lowes = Business.create({
@@ -90,5 +97,16 @@ lowes = Business.create({
   state: 'Arizona',
   phone: "769-444-#{Faker::PhoneNumber.subscriber_number}",
   price: (1..5).to_a.sample,
-  tags: '@sushi @sit down'
+  description: Faker::Lorem.paragraphs((1..30).to_a.sample).join(' '),
+  tags: '@sushi, @sit down'
+})
+
+cemex = Business.create({
+  name: 'Cemex',
+  address_1: Faker::Address.street_address,
+  city: 'Longmont',
+  state: 'Colorado',
+  phone: "1-720-444-#{Faker::PhoneNumber.subscriber_number}",
+  description: Faker::Lorem.paragraphs((1..3).to_a.sample).join(' '),
+  tags: '@dirty, @dusty, @load'
 })

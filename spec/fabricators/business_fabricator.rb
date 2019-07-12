@@ -6,5 +6,6 @@ Fabricator(:business) do
   state { Faker::Address.state }
   phone { "720-444-#{Faker::PhoneNumber.subscriber_number}" }
   price { (1..5).to_a.sample }
+  description { Faker::Lorem.paragraphs((1..3).to_a.sample).join(' ') }
   tags { '@sushi @sit down'}
 end

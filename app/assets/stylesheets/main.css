@@ -4,6 +4,10 @@ ul {
   padding-inline-start: 0;
 }
 
+.full-text {
+  display: none;
+}
+
 .flash .alert {
   margin-bottom: 0;
 }
@@ -839,7 +843,18 @@ main.businesses {
   width: 980px;
   margin: 40px auto 0 auto;
 }
+/************************* ADDED ***********************/
+main.businesses aside.meta {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
 
+main.businesses li {
+  position: relative;
+}
+
+/************************* END ****************************/
 main.businesses > p {
   float: right;
   margin-top: 5px;
@@ -854,9 +869,11 @@ main.businesses > ul li header h2 {
 main.businesses > ul li header {
   display: inline-block;
 }
-main.businesses > ul li header h2 > a:last-of-type {
-  margin-left: 20px;
+
+#review-link {
+  margin-right: 20px;
 }
+
 main.businesses > ul li aside {
   float: right;
   margin-top: -5px;
@@ -900,7 +917,7 @@ main.businesses span.middot {
   padding-right: 5px;
 }
 
-main.businesses span.middot + a {
+main.businesses .tags a {
   font-weight: normal;
   margin-left: 0;
 }
