@@ -105,4 +105,96 @@ describe ApplicationHelper do
       end
     end
   end
+
+  describe '#calculate_start_count' do
+    it 'returns 1 when page number is nil' do
+      expect(helper.calculate_start_count(10, nil)).to eq(1)
+    end
+
+    it 'returns 1 when page number is 1' do
+      expect(helper.calculate_start_count(10, 1)).to eq(1)
+    end
+
+    it 'returns 5 when page number is 2' do
+      expect(helper.calculate_start_count(10, 2)).to eq(6)
+    end
+  end
+
+  describe '#calculate_end_count' do
+    it 'returns 5 when page number is 1' do
+      expect(helper.calculate_end_count(10, 1)).to eq(5)
+    end
+
+    it 'returns 5 when page number is nil' do
+      expect(helper.calculate_end_count(10, nil)).to eq(5)
+    end
+
+    it 'returns 9 when page number is 2 and total count is 9' do
+      expect(helper.calculate_end_count(9, 2)).to eq(9)
+    end
+
+    it 'returns 10 when page number is 2 and total count is 10' do
+      expect(helper.calculate_end_count(10, 2)).to eq(10)
+    end
+  end
+
+  describe '#page_item_class' do
+    it 'returns "page-item active" if the current page is nil' do
+      expect(helper.page_item_class(nil, 1)).to eq('page-item active')
+    end
+
+    it 'returns "page-item" if the current page is not equal to the line item' do
+      expect(helper.page_item_class(1, 2)).to eq('page-item')
+    end
+
+    it 'returns "page-item active" if the current page equal to the line item' do
+      expect(helper.page_item_class(1, 1)).to eq('page-item active')
+    end
+  end
+
+  describe '#pagination_arrow_class' do
+    context 'prev arrow class' do
+      it 'returns "page-item disabled" if current page is nil' do
+        expect(helper.pagination_arrow_class(nil, 10, 'prev')).to eq('page-item disabled')
+      end
+
+      it 'returns "page-item disabled" if current page is 1' do
+        expect(helper.pagination_arrow_class(1, 10, 'prev')).to eq('page-item disabled')
+      end
+
+      it 'returns "page-item" if current page is 2' do
+        expect(helper.pagination_arrow_class(2, 10, 'prev')).to eq('page-item')
+      end
+    end
+
+    context 'next arrow class' do
+      it 'returns "page-item" if current page is 1 and there is more than 1 page' do
+        expect(helper.pagination_arrow_class(1, 10, 'next')).to eq('page-item')
+      end
+
+      it 'returns "page-item disabled" if current page is 1 and there is only 1 page' do
+        expect(helper.pagination_arrow_class(1, 5, 'next')).to eq('page-item disabled')
+      end
+
+      it 'returns "page-item disabled" if current page is nil and there is only 1 page' do
+        expect(helper.pagination_arrow_class(nil, 5, 'next')).to eq('page-item disabled')
+      end
+
+      it 'returns "page-item" if current page is nil and there are is more than 1 page' do
+        expect(helper.pagination_arrow_class(nil, 10, 'next')).to eq('page-item')
+      end
+    end
+
+    # it 'returns "page-item disabled" if current page is 1' do
+    #   expect(helper.pagination_arrow_class(1, 10)).to eq('page-item disabled')
+    # end
+    #
+    # it 'returns "page-item disabled" if current page is the last page' do
+    #   expect(helper.pagination_arrow_class(2, 10)).to eq('page-item')
+    # end
+    #
+    # it 'returns "page-item" if current page is 1 and there are multiple pages' do
+    #   expect(helper.pagination_arrow_class(2, 10, 'next')).to eq('page-item disabled')
+    # end
+  end
 end

@@ -1,0 +1,4 @@
+add flash messages to home screen
+check flash messages, some not deleting
+add description to businesses
+make sure to titleize business name 

@@ -1,7 +1,11 @@
 class BusinessesController < ApplicationController
   def index
-    #set up paginations / offsets
-    @businesses = Business.offset(6).limit(5)
+    @businesses = Business.get_records_by_offset(params[:page], 5)
     @count = Business.count
+    @current_page = params[:page] || 1
+  end
+
+  def show
+    @business = Business.find_by id: params[:id]
   end
 end

@@ -22,6 +22,10 @@ ul {
   top: -3px;
 }
 
+h3.empty-content {
+  margin: 100px 0;
+}
+
 textarea {
   border: 1px solid #cecece;
   height: auto;
@@ -855,9 +859,13 @@ main.businesses li {
 }
 
 /************************* END ****************************/
-main.businesses > p {
+main.businesses .clearfix > p {
   float: right;
   margin-top: 5px;
+}
+
+main.businesses .clearfix > a {
+  float:left;
 }
 
 main.businesses > ul li header h2 {
@@ -870,8 +878,8 @@ main.businesses > ul li header {
   display: inline-block;
 }
 
-#review-link {
-  margin-right: 20px;
+.review-link {
+  margin-left: 20px;
 }
 
 main.businesses > ul li aside {
