@@ -19,5 +19,38 @@
 //= require bootstrap
 
 $(function() {
-  $('[data-toggle="tooltip"]').tooltip();
+  const App = {
+    viewFullText: function(e) {
+      e.preventDefault();
+
+      const $a = $(e.target);
+      const $truncText = $a.parent();
+      const $fullText = $truncText.next('.full-text');
+
+      $truncText.hide();
+      $fullText.show();
+    },
+
+    viewTruncText: function(e) {
+      e.preventDefault();
+
+      const $a = $(e.target);
+      const $fullText = $a.parent();
+      const $truncText = $fullText.prev('.truncated');
+
+      $fullText.hide();
+      $truncText.show();
+    },
+    bindEvents: function() {
+      $('[data-toggle="tooltip"]').tooltip();
+      $('.businesses').on('click', 'a.full-text-link', this.viewFullText.bind(this));
+      $('.businesses').on('click', 'a.show-less-link', this.viewTruncText.bind(this));
+    },
+    init: function() {
+      this.bindEvents();
+      return this;
+    }
+  };
+
+  const app = Object.create(App).init();
 });

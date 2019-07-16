@@ -10,7 +10,7 @@
         %input{ type: 'text', name: 'find_query', id: 'find-q', placeholder: 'movers, burgers...' }
         %label{ for: 'near-q'}
           Near
-        %input{ type: 'text', name: 'near_query', id: 'near-q', placeholder: 'Longmont, CO'}
+        %input{ type: 'text', name: 'near_query', id: 'near-q', placeholder: "#{current_user.city}, #{format_state(current_user.state)}" }
         %input{ type: 'submit', value: 'Search'}
     %li.nav-item
       %a{href: '#', data: {toggle: 'tooltip', placement: 'bottom', container: 'body'}, title: 'See All Buisnesses'}
@@ -32,10 +32,10 @@
                 %dt
                 %dd
                   %a{href: '#'}
-                    Devin S.
+                    =current_user.first_name
                 %dt
                 %dd
-                  Austin
+                  =current_user.city
                 %dt
                 %dd
                   %ul
@@ -53,5 +53,4 @@
             =fa_icon 'gear'
             Account Settings
         %section
-          %a{href: '#'}
-            Log Out
+          =link_to 'Log Out', log_out_path
