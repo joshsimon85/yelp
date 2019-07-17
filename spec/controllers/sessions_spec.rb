@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'support/macros'
 
 RSpec.describe SessionsController do
   let(:user) { Fabricate(:user) }

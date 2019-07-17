@@ -5,7 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-jon = User.create({ first_name: 'Jon', last_name: 'Doe', email: 'jon@doe.com', password: 'password', city: 'Boulder', state: 'Colorado', birthday: "1985-10-02" })
+jon = User.create({ first_name: 'Jon', last_name: 'Doe', email: 'jon@doe.com', password: 'password', city: 'Boulder', state: 'Colorado', birthday: '1985-10-02' })
+jane = User.create({ first_name: 'Jane', last_name: 'Doe', email: 'Jane@doe.com', password: 'password', city: 'Denver', state: 'Colorado', birthday: '1960-12-25' })
+carrie = User.create({ first_name: 'Carrie', last_name: 'Doe', email: 'carrie@doe.com', password: 'password', city: 'Longmont', state: 'Colorado', birthday: '1959-09-10' })
+josh = User.create({ first_name: 'Josh', last_name: 'Doe', email: 'josh@doe.com', password: 'password', city: 'Lyons', state: 'Colorado', birthday: '1959-09-10' })
+tammy  = User.create({ first_name: 'Tammy', last_name: 'Doe', email: 'tammy@doe.com', password: 'password', city: 'Pinewood Springs', state: 'Colorado', birthday: '1959-09-10' })
 
 hapa = Business.create({
   name: 'Hapa',
@@ -109,4 +113,39 @@ cemex = Business.create({
   phone: "1-720-444-#{Faker::PhoneNumber.subscriber_number}",
   description: Faker::Lorem.paragraphs((1..3).to_a.sample).join(' '),
   tags: '@dirty, @dusty, @load'
+})
+
+Review.create({
+  body: Faker::Lorem.paragraphs((1..30).to_a.sample).join(' '),
+  user_id: jon.id,
+  business_id: hapa.id,
+  rating: (1..5).to_a.sample
+})
+
+Review.create({
+  body: Faker::Lorem.paragraphs((1..30).to_a.sample).join(' '),
+  user_id: jane.id,
+  business_id: hapa.id,
+  rating: (1..5).to_a.sample
+})
+
+Review.create({
+  body: Faker::Lorem.paragraphs((1..30).to_a.sample).join(' '),
+  user_id: tammy.id,
+  business_id: lyons_vet.id,
+  rating: (1..5).to_a.sample
+})
+
+Review.create({
+  body: Faker::Lorem.paragraphs((1..30).to_a.sample).join(' '),
+  user_id: tammy.id,
+  business_id: lyons_vet.id,
+  rating: (1..5).to_a.sample
+})
+
+Review.create({
+  body: Faker::Lorem.paragraphs((1..30).to_a.sample).join(' '),
+  user_id: josh.id,
+  business_id: lyons_vet.id,
+  rating: (1..5).to_a.sample
 })

@@ -1,0 +1,36 @@
+=render 'shared/nav'
+%main.edit-review
+  %section.clearfix
+    %section
+      =form_for [@business, @review], html: { novalidate: true } do |f|
+        %h2
+          Create a review for
+          =link_to @business.name.titleize, business_path(@business)
+        -if @review.errors.any?
+          %div{id: 'errors_explanation'}
+            %h3.errors.alert.alert-danger
+              Your review contains
+              =pluralize(@review.errors.count, 'error')
+            %ul
+              -@review.errors.full_messages.each do |msg|
+                -if msg == "Body can't be blank"
+                  %li
+                    Review can't be blank
+                -else
+                  %li
+                    #{msg}
+        %dl
+          %dt
+          %dd
+            =f.select :rating, options_for_select([["&#9733 &#9733 &#9733 &#9733 &#9733".html_safe, 5], ["&#9733 &#9733 &#9733 &#9733".html_safe, 4], ["&#9733 &#9733 &#9733".html_safe, 2], ["&#9733 &#9733".html_safe, 2], ["&#9733".html_safe, 1]], @review.rating), { include_blank: 'Rating' }, { required: true }
+          %dt
+          %dd
+            =f.text_area :body, cols: 47, rows: 10, placeholder: 'Review'
+          %dt
+          %dd
+            =f.submit 'Submit', class: 'btn btn-danger'
+          %dd
+            =link_to 'Cancel', business_path(@business), class: 'btn btn-outline-secondary'
+    %aside.image
+      %img{ src: 'https://s3-media4.fl.yelpcdn.com/assets/2/www/img/7922e77f338d/signup/signup_illustration.png', alt: 'drawing of a business'}
+=render 'shared/footer'
