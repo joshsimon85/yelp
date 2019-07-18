@@ -7,5 +7,6 @@ class BusinessesController < ApplicationController
 
   def show
     @business = Business.find_by id: params[:id]
+    @reviews = @business.reviews.limit(5)
   end
 end

@@ -1,7 +1,6 @@
 require 'rails_helper'
-require 'support/macros'
 
-describe 'Unauthenticated access to create reviews', type: :request do
+RSpec.describe 'Unauthenticated access to create reviews', type: :request do
   let!(:business) { Fabricate(:business) }
 
   it 'denies access to reviews#new' do

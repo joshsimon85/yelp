@@ -43,8 +43,8 @@ $(function() {
     },
     bindEvents: function() {
       $('[data-toggle="tooltip"]').tooltip();
-      $('.businesses').on('click', 'a.full-text-link', this.viewFullText.bind(this));
-      $('.businesses').on('click', 'a.show-less-link', this.viewTruncText.bind(this));
+      $('.businesses, .business').on('click', 'a.full-text-link', this.viewFullText.bind(this));
+      $('.businesses, .business').on('click', 'a.show-less-link', this.viewTruncText.bind(this));
     },
     init: function() {
       this.bindEvents();

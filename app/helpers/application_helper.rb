@@ -91,4 +91,14 @@ module ApplicationHelper
       'page-item'
     end
   end
+
+  def format_name(first_name, last_name)
+    "#{first_name.capitalize} #{format_last_name(last_name)}"
+  end
+
+  def format_last_name(last_name)
+    return '' if last_name.nil?
+    return '' if last_name == ''
+    "#{last_name[0].capitalize}."
+  end
 end

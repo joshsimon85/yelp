@@ -184,17 +184,25 @@ describe ApplicationHelper do
         expect(helper.pagination_arrow_class(nil, 10, 'next')).to eq('page-item')
       end
     end
+  end
 
-    # it 'returns "page-item disabled" if current page is 1' do
-    #   expect(helper.pagination_arrow_class(1, 10)).to eq('page-item disabled')
-    # end
-    #
-    # it 'returns "page-item disabled" if current page is the last page' do
-    #   expect(helper.pagination_arrow_class(2, 10)).to eq('page-item')
-    # end
-    #
-    # it 'returns "page-item" if current page is 1 and there are multiple pages' do
-    #   expect(helper.pagination_arrow_class(2, 10, 'next')).to eq('page-item disabled')
-    # end
+  describe '#format_last_name' do
+    it 'returns the last name formatted "#."' do
+      expect(helper.format_last_name('Doe')).to eq('D.')
+    end
+
+    it 'returns an empty string if last name is nil' do
+      expect(helper.format_last_name(nil)).to eq('')
+    end
+
+    it 'returns an empty string if last name is an empty string' do
+      expect(helper.format_last_name('')).to eq('')
+    end
+  end
+
+  describe '#format_name' do
+    it 'returns the first name capitalized and last name abbreviated' do
+      expect(helper.format_name('Jon', 'Doe')).to eq('Jon D.')
+    end
   end
 end

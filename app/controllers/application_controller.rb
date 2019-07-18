@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :logged_in?, :current_user
+  helper_method :logged_in?, :current_user, :same_user?
 
   def logged_in?
     !!current_user
@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
     unless logged_in?
       flash[:error] = 'You must be logged in to do that'
       redirect_to sign_in_path
-    end 
+    end
+  end
+
+  def same_user?(user)
+    current_user.id == user.id
   end
 end
