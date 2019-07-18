@@ -1,12 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe BusinessesController do
-  let!(:b_1) { Fabricate(:business, name: 'Z') }
-  let!(:b_2) { Fabricate(:business, name: 'A') }
-  let!(:b_3) { Fabricate(:business, name: 'B') }
-  let!(:b_4) { Fabricate(:business, name: 'C', state: 'Colorado') }
-  let!(:b_5) { Fabricate(:business, name: 'D', state: 'Colorado') }
-  let!(:b_6) { Fabricate(:business, name: 'E') }
+  let!(:jon) { Fabricate(:user) }
+  let!(:b_1) { Fabricate(:business, name: 'Z', user_id: jon.id) }
+  let!(:b_2) { Fabricate(:business, name: 'A', user_id: jon.id) }
+  let!(:b_3) { Fabricate(:business, name: 'B', user_id: jon.id) }
+  let!(:b_4) { Fabricate(:business, name: 'C', state: 'Colorado', user_id: jon.id) }
+  let!(:b_5) { Fabricate(:business, name: 'D', state: 'Colorado', user_id: jon.id) }
+  let!(:b_6) { Fabricate(:business, name: 'E', user_id: jon.id) }
 
   describe 'GET index' do
     it 'gets a list of the first 5 businesses in alphabetical order' do

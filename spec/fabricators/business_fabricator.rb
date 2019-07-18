@@ -8,4 +8,5 @@ Fabricator(:business) do
   price { (1..5).to_a.sample }
   description { Faker::Lorem.paragraphs((1..3).to_a.sample).join(' ') }
   tags { '@sushi @sit down'}
+  user_id { Faker::Number.number(1).to_i }
 end

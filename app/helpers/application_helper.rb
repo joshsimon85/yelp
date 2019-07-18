@@ -101,4 +101,19 @@ module ApplicationHelper
     return '' if last_name == ''
     "#{last_name[0].capitalize}."
   end
+
+  def format_date(date_time)
+    "#{date_time.month}-#{date_time.day}-#{date_time.year}"
+  end
+
+  def calculate_average_rating(ratings)
+    total = ratings.map { |rating| rating.rating }
+                   .reduce { |total, num| total + num }
+    average = total / (ratings.size.to_f)
+    calculate_average_rating_percentage(average)
+  end
+
+  def calculate_average_rating_percentage(average)
+    average * 20
+  end
 end

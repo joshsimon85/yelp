@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def same_user?(user)
+    return false if current_user.nil?
     current_user.id == user.id
   end
 end

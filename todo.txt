@@ -1,4 +1,6 @@
 add flash messages to home screen
 check flash messages, some not deleting
 add description to businesses
-make sure to titleize business name 
+make sure to titleize business name
+add a way to pass in params to empty content shared layout
+add pagination to business reviews

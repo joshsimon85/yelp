@@ -9,4 +9,5 @@ RSpec.describe Business do
   it { should validate_presence_of :phone }
   it { should validate_presence_of :description }
   it { should have_many :reviews }
+  it { should belong_to :user }
 end
