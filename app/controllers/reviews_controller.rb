@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :require_login, only: [:new, :create]
+  before_action :require_login, only: [:new, :create, :edit]
 
   def new
     @review = Review.new
@@ -16,6 +16,26 @@ class ReviewsController < ApplicationController
     else
       flash.now[:error] = 'Your review could not be submitted'
       render :new
+    end
+  end
+
+  def edit
+    @review = Review.find(params[:id])
+    @business = Business.find(params[:business_id])
+    require_same_user(@review.creator, 'reviews')
+  end
+
+  def update
+    @business = Business.find(params[:business_id])
+    @review = Review.find(params[:id])
+    require_same_user(@review.creator, 'reviews')
+
+    if @review.update_attributes(review_params)
+      flash[:notice] = 'Your review has been updated'
+      redirect_to business_path(@business)
+    else
+      flash[:error] = 'Your review could not be submitted'
+      render :edit
     end
   end
 

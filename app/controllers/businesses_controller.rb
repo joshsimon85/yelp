@@ -8,5 +8,7 @@ class BusinessesController < ApplicationController
   def show
     @business = Business.find_by id: params[:id]
     @reviews = @business.reviews.limit(5)
+    @count = @business.reviews.size
+    @current_page = params[:page] || '1'
   end
 end

@@ -106,14 +106,15 @@ module ApplicationHelper
     "#{date_time.month}-#{date_time.day}-#{date_time.year}"
   end
 
-  def calculate_average_rating(ratings)
-    total = ratings.map { |rating| rating.rating }
+  def calculate_average_rating(reviews)
+    return 0 if reviews.empty?
+    total = reviews.map { |review| review.rating }
                    .reduce { |total, num| total + num }
-    average = total / (ratings.size.to_f)
+    average = total / (reviews.size.to_f)
     calculate_average_rating_percentage(average)
   end
 
   def calculate_average_rating_percentage(average)
-    average * 20
+    (average * 20).round
   end
 end

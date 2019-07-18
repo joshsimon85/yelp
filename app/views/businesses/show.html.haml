@@ -67,7 +67,7 @@
               %li
                 %div.rating
                   %div.rating-box
-                    %div.rating{ style: "width: #{review.rating * 20}%" }
+                    %div.rating{ style: "width: #{calculate_average_rating_percentage(review.rating)}%" }
                   %span
                     =format_date(review.created_at)
                 -if review.body.length > 400
@@ -80,18 +80,7 @@
                 -else
                   %p
                     =review.body
-        %nav{aria: {label: 'pagination'}}
-          %ul.pagination
-            %li.page-item.disabled
-              %a.page-link{href: '#', aria: {label: 'Previous'}}
-                %span{ aria: {hidden: true}} &laquo;
-                %span.sr-only Previous
-            %li.page-item.active
-              %a.page-link{href: '#'} 1
-            %li.page-item
-              %a.page-link{href: '#', aria: {label: 'Next'}}
-                %span{aria: {hidden: true}} &raquo;
-                %span.sr-only Next
+        =render partial: 'shared/pagination', locals: { current_page: @current_page, count: @count }
   -else
-    =render 'shared/empty_content'
+    =render partial: 'shared/empty_content', locals: { category: 'reviews' }
 =render 'shared/footer'

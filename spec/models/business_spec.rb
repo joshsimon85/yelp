@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Business do
-  it { should validate_uniqueness_of :name }
+  it { should validate_uniqueness_of(:name).case_insensitive }
   it { should validate_presence_of :name }
   it { should validate_presence_of :address_1 }
   it { should validate_presence_of :city }

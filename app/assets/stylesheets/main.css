@@ -31,8 +31,10 @@ textarea:focus {
   border-radius: 4px;
 }
 
-h3.empty-content {
+#empty-content {
+  color: red;
   margin: 100px 0;
+  text-align: center;
 }
 
 h3.errors {

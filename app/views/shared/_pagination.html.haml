@@ -1,0 +1,13 @@
+%nav{aria: {label: 'pagination'}}
+  %ul.pagination
+    %li{class: pagination_arrow_class(@current_page, @count, 'prev')}
+      =link_to businesses_path(page: "#{@current_page.to_i - 1}"), class: 'page-link', aria: {label: 'Previous'} do
+        %span{ aria: {hidden: true}} &laquo;
+        %span.sr-only Previous
+    -(@count / 5.0).ceil.times do |num|
+      %li{class: page_item_class(@current_page, num + 1)}
+        =link_to "#{num + 1}", businesses_path(page: "#{num + 1}"), {class: 'page-link'}
+    %li{class: pagination_arrow_class(@current_page, @count, 'next')}
+      =link_to businesses_path(page: "#{@current_page.to_i + 1}"), class: 'page-link', aria: {label: 'Next'} do
+        %span{aria: {hidden: true}} &raquo;
+        %span.sr-only Next

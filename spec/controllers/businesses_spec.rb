@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe BusinessesController do
-  let!(:jon) { Fabricate(:user) }
+  let!(:jon) { (Fabricate(:user)) }
   let!(:b_1) { Fabricate(:business, name: 'Z', user_id: jon.id) }
   let!(:b_2) { Fabricate(:business, name: 'A', user_id: jon.id) }
   let!(:b_3) { Fabricate(:business, name: 'B', user_id: jon.id) }

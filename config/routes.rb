@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   resources :businesses, except: [:delete, :destroy] do
-    resources :reviews, except: :index
+    resources :reviews, except: [:index, :delete, :destoy]
   end
 
   root to: 'pages#front'

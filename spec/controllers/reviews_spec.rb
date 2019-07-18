@@ -2,10 +2,11 @@ require 'rails_helper'
 
 RSpec.describe ReviewsController, type: :controller do
   context 'signed in user' do
-    let(:business) { Fabricate(:business) }
+    let!(:jon) { Fabricate(:user) }
+    let!(:business) { Fabricate(:business, user_id: jon.id) }
 
     before do
-      set_current_user
+      set_current_user(jon)
     end
 
     describe 'GET new' do
@@ -22,7 +23,8 @@ RSpec.describe ReviewsController, type: :controller do
   end
 
   context 'not signed in' do
-    let(:business) { Fabricate(:business) }
+    let!(:jon) { Fabricate(:user) }
+    let!(:business) { Fabricate(:business, user_id: jon.id) }
 
     describe 'GET new' do
       it 'sets the flash error' do

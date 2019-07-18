@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Unauthenticated access to create reviews', type: :request do
-  let!(:business) { Fabricate(:business) }
+  let!(:jon) { Fabricate(:user) }
+  let!(:business) { Fabricate(:business, user_id: jon.id) }
 
   it 'denies access to reviews#new' do
     get new_business_review_path(business.id)
