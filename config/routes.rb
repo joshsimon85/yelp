@@ -5,8 +5,8 @@ Rails.application.routes.draw do
     resources :reviews, only: :show
   end
 
-  resources :businesses, except: [:delete, :destroy] do
-    resources :reviews, except: [:index, :delete, :destoy]
+  resources :businesses do
+    resources :reviews, except: :index
   end
 
   root to: 'pages#front'

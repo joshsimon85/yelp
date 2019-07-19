@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
 
   def require_same_user(user, type)
     unless same_user?(user)
-      flash[:error] = "You can only edit your own #{type}!"
+      flash[:error] = "You can only edit/delete a #{type} you created!"
       redirect_to businesses_path
     end
   end

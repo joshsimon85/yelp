@@ -1,0 +1,53 @@
+=render 'shared/nav'
+%main.add-business
+  %section.clearfix
+    %section
+      %h2 Add New Business
+      =form_for @business, html: { novalidate: true } do |f|
+        -if @business.errors.any?
+          %div{id: 'errors_explanation'}
+            %h3.errors.alert.alert-danger
+              Your business contains
+              =pluralize(@business.errors.count, 'error')
+            %ul
+              -@business.errors.full_messages.each do |msg|
+                %li
+                  #{msg}
+        %dl
+          %dt
+          %dd
+            =f.text_field :name, placeholder: 'Name'
+          %dt
+          %dd
+            =f.text_field :address_1, placeholder: 'Address 1'
+          %dt
+          %dd
+            =f.text_field :address_2, placeholder: 'Address 2'
+          %dt
+          %dd
+            =f.text_field :city, placeholder: 'City'
+          %dt
+          %dd
+            =f.text_field :state, placeholder: 'State'
+          %dt
+          %dd
+            =f.text_field :phone, placeholder: 'Phone number'
+          %dt
+          %dd
+            =f.select :price, options_for_select([["$$$$$", 5], ["$$$$", 4], ["$$$", 3], ["$$", 2], ["$", 1]], @business.price), { include_blank: 'Price' }, { required: true }
+          %dt
+          %dd
+            =f.text_area :description, cols: 46, rows: 5, placeholder: 'Description'
+          %dt
+            %span.asterix *
+            Separate tags with @
+          %dd
+            =f.text_field :tags, placeholder: '@Fast Food @Cheap @Chinese'
+          %dt
+          %dd
+            =f.submit 'Submit', class: 'btn btn-danger'
+          %dd
+            =link_to 'Cancel', :back, class: 'btn btn-outline-secondary'
+    %aside.image
+      %img{ src: 'https://s3-media4.fl.yelpcdn.com/assets/2/www/img/7922e77f338d/signup/signup_illustration.png', alt: 'drawing of a business'}
+=render 'shared/footer'

@@ -22,7 +22,7 @@
         %dl
           %dt
           %dd
-            =f.select :rating, options_for_select([["&#9733 &#9733 &#9733 &#9733 &#9733".html_safe, 5], ["&#9733 &#9733 &#9733 &#9733".html_safe, 4], ["&#9733 &#9733 &#9733".html_safe, 2], ["&#9733 &#9733".html_safe, 2], ["&#9733".html_safe, 1]], @review.rating), { include_blank: 'Rating' }, { required: true }
+            =f.select :rating, options_for_select([["&#9733 &#9733 &#9733 &#9733 &#9733".html_safe, 5], ["&#9733 &#9733 &#9733 &#9733".html_safe, 4], ["&#9733 &#9733 &#9733".html_safe, 3], ["&#9733 &#9733".html_safe, 2], ["&#9733".html_safe, 1]], @review.rating), { include_blank: 'Rating' }, { required: true }
           %dt
           %dd
             =f.text_area :body, cols: 47, rows: 10, placeholder: 'Review'

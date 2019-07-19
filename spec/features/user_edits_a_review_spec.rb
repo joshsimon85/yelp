@@ -37,6 +37,6 @@ RSpec.feature 'user adds a review to a business', type: :feature do
 
     visit edit_business_review_path(hapa, jane_review)
 
-    expect(page).to have_content('You can only edit your own reviews!')
+    expect(page).to have_content('You can only edit a review you created!')
   end
 end

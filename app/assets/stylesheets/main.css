@@ -4,6 +4,15 @@ ul {
   padding-inline-start: 0;
 }
 
+#delete {
+  color: red;
+  font-size: 14px;
+}
+
+#delete-container {
+  text-align: right;
+}
+
 textarea:focus {
   outline: none;
 }
@@ -27,6 +36,11 @@ textarea:focus {
 }
 
 .field_with_errors input, .field_with_errors #review_rating, .field_with_errors textarea {
+  border: 1px solid #822E3A;
+  border-radius: 4px;
+}
+
+#new_business .field_with_errors input {
   border: 1px solid #822E3A;
   border-radius: 4px;
 }

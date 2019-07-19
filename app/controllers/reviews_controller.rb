@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
   def edit
     @review = Review.find(params[:id])
     @business = Business.find(params[:business_id])
-    require_same_user(@review.creator, 'reviews')
+    require_same_user(@review.creator, 'review')
   end
 
   def update

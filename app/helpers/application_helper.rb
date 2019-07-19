@@ -6,6 +6,7 @@ module ApplicationHelper
   end
 
   def create_price_tag(price)
+    return if price.nil?
     price_tag = ''
 
     price.times do |num|
