@@ -23,7 +23,11 @@ describe ApplicationHelper do
     it 'returns an empty string if the price is 0' do
       expect(helper.create_price_tag(0)).to eq('')
     end
-
+######
+    it 'returns an empty string if the price is nil' do
+      expect(helper.create_price_tag(nil)).to eq('')
+    end
+######
     it 'returns an empty string if the price is less than 0' do
       expect(helper.create_price_tag(-1)).to eq('')
     end

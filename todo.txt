@@ -6,3 +6,5 @@ add a way to pass in params to empty content shared layout
 add pagination to reviews under the show business page
 navigate to gcc and click on it to edit.. raises an error
 add in ability to delete reviews
+figure out a way to make rails prevent default on delete a tags with delete method
+validate phone number inputs

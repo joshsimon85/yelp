@@ -22,7 +22,7 @@ class BusinessesController < ApplicationController
     @business = Business.new(business_params.merge(user_id: current_user.id))
     if @business.save
       flash[:notice] = 'The business has been created'
-      redirect_to user_path(current_user.id)
+      redirect_to businesses_path
     else
       flash.now[:error] = 'The business could not be submitted'
       render :new
@@ -31,26 +31,38 @@ class BusinessesController < ApplicationController
 
   def edit
     @business = Business.find(params[:id])
-    require_same_user(@business.creator, 'business')
+    unless same_user?(@business.creator)
+      flash[:error] = 'You can only edit businesses you added'
+      redirect_to business_path(@business)
+    end
   end
 
   def update
     @business = Business.find(params[:id])
-    require_same_user(@business.creator, 'business')
-    if @business.update_attributes(business_params)
-      flash[:notice] = 'The business has been updated'
-      redirect_to user_path(current_user)
+    if same_user?(@business.creator)
+      if @business.update_attributes(business_params)
+        flash[:notice] = 'The business has been updated'
+        redirect_to business_path(@business)
+      else
+        flash.now[:error] = 'The business could not be updated'
+        render :edit
+      end
     else
-      flash.now[:error] = 'The business could not be updated'
-      render :edit
+      flash[:error] = 'You can only edit businesses you added'
+      redirect_to business_path(@business)
     end
   end
 
   def destroy
-    @business = Business.find(params[:id]).destroy
-    require_same_user(@business.creator, 'business')
-    flash[:notice] = 'The business has been deleted'
-    redirect_to businesses_path
+    business = Business.find(params[:id])
+    if same_user?(business.creator)
+      flash[:notice] = 'The business has been deleted'
+      redirect_to businesses_path
+      business.destroy
+    else
+      flash[:error] = 'You can only delete businesses you added'
+      redirect_to business_path(business)
+    end
   end
 
   private

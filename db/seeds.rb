@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 jon = User.create({ first_name: 'Jon', last_name: 'Doe', email: 'jon@doe.com', password: 'password', city: 'Boulder', state: 'Colorado', birthday: '1985-10-02' })
-jane = User.create({ first_name: 'Jane', last_name: 'Doe', email: 'Jane@doe.com', password: 'password', city: 'Denver', state: 'Colorado', birthday: '1960-12-25' })
+jane = User.create({ first_name: 'Jane', last_name: 'Doe', email: 'jane@doe.com', password: 'password', city: 'Denver', state: 'Montana', birthday: '1960-12-25' })
 carrie = User.create({ first_name: 'Carrie', last_name: 'Doe', email: 'carrie@doe.com', password: 'password', city: 'Longmont', state: 'Colorado', birthday: '1959-09-10' })
 josh = User.create({ first_name: 'Josh', last_name: 'Doe', email: 'josh@doe.com', password: 'password', city: 'Lyons', state: 'Colorado', birthday: '1959-09-10' })
 tammy  = User.create({ first_name: 'Tammy', last_name: 'Doe', email: 'tammy@doe.com', password: 'password', city: 'Pinewood Springs', state: 'Colorado', birthday: '1959-09-10' })

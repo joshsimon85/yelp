@@ -1,0 +1,55 @@
+%main.businesses
+  %secion.clearfix
+    -if logged_in?
+      =link_to '+ Add New Business', new_business_path, {class: 'btn btn-outline-danger'}
+    -if count != 0
+      %p
+        Showing #{calculate_start_count(count, current_page)} to #{calculate_end_count(count, current_page)} of #{count}
+  -if count != 0
+    %ul
+      -businesses.each do |business|
+        %li
+          %header
+            %h2
+              =link_to business.name.titleize, business_path(business)
+              -if logged_in?
+                =link_to new_business_review_path(business.id), {class: 'btn btn-danger review-link'} do
+                  =fa_icon 'star'
+                  Write A Review
+            %section
+              %div.rating
+                %div.rating-box
+                  %div.rating{ style: "width: #{calculate_average_rating(business.reviews)}%" }
+                %span
+                  =business.reviews.size
+                %div.tags
+                  -if business.price
+                    =create_price_tag(business.price)
+                    %span.middot &middot
+                  -if business.tags
+                    -tags = create_tags(business.tags)
+                    -tags.each_with_index do |tag, index|
+                      =link_to tag, '#'
+                      -if index < tags.length - 1
+                        %span.middot &middot
+              -if business.description.length > 250
+                %p.truncated
+                  =truncate_text(business.description, 220)
+                  =link_to 'Read More', nil, {class: 'full-text-link'}
+                %p.full-text
+                  #{business.description}
+                  =link_to 'Read Less', nil, {class: 'show-less-link'}
+              -else
+                %p
+                  =business.description
+          %aside.meta
+            %ul
+              %li
+                =format_phone(business.phone)
+              %li
+                =business.city.capitalize
+              %li
+                =business.state.capitalize
+    =render partial: 'shared/pagination', locals: { current_page: current_page, count: count }
+  -else
+    =render partial: 'shared/empty_content', locals: { category: category }

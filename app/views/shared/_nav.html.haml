@@ -13,7 +13,7 @@
         %input{ type: 'text', name: 'near_query', id: 'near-q', placeholder: "#{current_user.city}, #{format_state(current_user.state)}" }
         %input{ type: 'submit', value: 'Search'}
     %li.nav-item
-      =link_to businesses_path, { data: {toggle: 'tooltip', placement: 'bottom', container: 'body' }, title: 'See All Businesses' } do
+      =link_to businesses_path, { id: 'all-businesses-link', data: {toggle: 'tooltip', placement: 'bottom', container: 'body' }, title: 'See All Businesses' } do
         =fa_icon 'building'
     %li.nav-item
       %a{href: '#', data: {toggle: 'tooltip', placement: 'bottom'}, title: 'See All Reviews'}

@@ -13,6 +13,11 @@ ul {
   text-align: right;
 }
 
+#delete-modal a.btn.btn-danger {
+  height: 37px;
+  width: 150px;
+}
+
 textarea:focus {
   outline: none;
 }
