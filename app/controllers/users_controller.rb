@@ -27,13 +27,31 @@ class UsersController < ApplicationController
   end
 
   def edit
-
+    @user = User.find(params[:id])
+    unless same_user?(@user)
+      flash[:error] = 'You can not edit account settings on an account that does not belong to you'
+      redirect_to user_path(current_user.id)
+    end
   end
 
   def update
+    @user = User.find(params[:id])
+    unless same_user?(@user)
+      flash[:error] = 'You can not edit account settings on an account that does not belong to you'
+      redirect_to user_path(current_user.id)
+    end
 
+    @user.update(user_params.merge(birthday: format_birthday(params[:birthday])))
+    if @user.save
+      flash[:notice] = 'Your account has been updated'
+      redirect_to user_path(@user)
+    else
+      flash.now[:error] = 'There was an error updating your account'
+      @user.birthday = nil if @user.errors.messages.include?(:birthday)
+      render :edit
+    end
   end
-  
+
   def edit_settings
     @user = User.find(params[:id])
 
@@ -68,7 +86,15 @@ class UsersController < ApplicationController
   end
 
   def destroy
-
+    @user = User.find(params[:id])
+    unless same_user?(@user)
+      flash[:error] = 'You can not edit account settings on an account that does not belong to you'
+      redirect_to user_path(current_user.id)
+    end
+    @user.destroy
+    flash[:notice] = 'Your account has been deleted'
+    session[:user_id] = nil
+    redirect_to :root
   end
 
   private

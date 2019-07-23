@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
   has_secure_password
   has_many :reviews, dependent: :destroy
-  has_many :businesses, dependent: :destroy
-  validates_presence_of :first_name, :last_name, :email, :password
+  has_many :businesses
+  validates_presence_of :first_name, :last_name, :email
+  validates_presence_of :password, on: [:new, :create, :edit_setting, :update_settings]
   validates_uniqueness_of :email, case_sensitive: false
   validate :birthday_date
 

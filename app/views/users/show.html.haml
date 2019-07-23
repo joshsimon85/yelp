@@ -35,16 +35,16 @@
           Things I Love
         %dd
           -if @user.about
-            @user.about
+            =@user.about
           -else
             You haven't told us yet... do tell!
   %section
     -if @user.reviews.count == 0
       %p.no-reviews
-        Devin S. has not written any reviews yet!
+        #{format_name(@user.first_name, @user.last_name)} has not written any reviews yet!
     -else
       %ul.user-reviews
         -@reviews.each do |review|
           =render partial: 'shared/review', locals: { review: review }
-    =render partial: 'shared/pagination', locals: { current_page: @current_page, count: @count }
+      =render partial: 'shared/pagination', locals: { current_page: @current_page, count: @count }
 =render 'shared/footer'
