@@ -1,0 +1,28 @@
+=render 'shared/nav'
+%main.edit-user.update
+  %section.clearfix
+    %section
+      %h2
+        Update Your Password
+      =form_tag settings_user_path(@user), method: :patch, novalidate: true do
+        %dl
+          %dt
+            =label_tag :c_pass, 'Current Password'
+          %dd
+            =password_field_tag :c_pass, nil, required: true
+          %dt
+            =label_tag :new_pass, 'New Password'
+          %dd
+            =password_field_tag :new_pass
+          %dt
+            =label_tag :v_pass, 'Verify New Password'
+          %dd
+            =password_field_tag :v_pass
+          %dt
+            %dd
+              =submit_tag 'Save Password', class: 'btn btn-danger'
+            %dd
+              =link_to 'Cancel', user_path(@user), class: 'btn btn-outline-secondary'
+    %aside.image
+      %img{ src: 'https://s3-media4.fl.yelpcdn.com/assets/2/www/img/7922e77f338d/signup/signup_illustration.png', alt: 'drawing of a business'}
+=render 'shared/footer'

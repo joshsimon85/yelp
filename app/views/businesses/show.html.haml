@@ -46,41 +46,7 @@
           Reviews for #{@business.name.titleize}
         %ul.user-reviews
           -@reviews.each do |review|
-            %li.user-review
-              %ul
-                %li
-                  =fa_icon 'user'
-                %li
-                  =link_to "#{format_name(review.creator.first_name, review.creator.last_name)}", user_path(review.creator.id)
-                  #{review.creator.city.capitalize}, #{review.creator.state.capitalize}
-                  =fa_icon 'building'
-                  %span
-                    =review.creator.businesses.size
-                  =fa_icon 'star'
-                  %span
-                    =review.creator.reviews.size
-                -if same_user?(review.creator)
-                  %li.edit-review
-                    =link_to edit_business_review_path(@business, review) do
-                      =fa_icon 'pencil'
-                      Edit Review
-              %ul
-                %li
-                  %div.rating
-                    %div.rating-box
-                      %div.rating{ style: "width: #{calculate_average_rating_percentage(review.rating)}%" }
-                    %span
-                      =format_date(review.created_at)
-                  -if review.body.length > 400
-                    %p.truncated
-                      =truncate_text(review.body, 400)
-                      =link_to 'Read More', nil, {class: 'full-text-link'}
-                    %p.full-text
-                      #{review.body}
-                      =link_to 'Read Less', nil, {class: 'show-less-link'}
-                  -else
-                    %p
-                      =review.body
+            =render partial: 'shared/review', locals: { review: review }
           =render partial: 'shared/pagination', locals: { current_page: @current_page, count: @count }
     -else
       =render partial: 'shared/empty_content', locals: { category: 'reviews' }

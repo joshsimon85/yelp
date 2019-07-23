@@ -25,13 +25,13 @@
         %section
           %ul
             %li
-              %a{href: '#'}
+              =link_to user_path(current_user.id) do
                 =fa_icon 'user'
             %li
               %dl
                 %dt
                 %dd
-                  %a{href: '#'}
+                  =link_to user_path(current_user.id) do
                     =current_user.first_name
                 %dt
                 %dd
@@ -46,10 +46,10 @@
                       =fa_icon 'star'
                       0
         %section
-          %a.dropdown-item{href: '#'}
+          =link_to user_path(current_user.id), class: 'dropdown-item' do
             =fa_icon 'user'
             About Me
-          %a.dropdown-item{href: '#'}
+          =link_to settings_user_path(current_user.id), class: 'dropdown-item' do
             =fa_icon 'gear'
             Account Settings
         %section

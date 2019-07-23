@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   get 'ui(/:action)', controller: 'ui'
 
-  resources :users, except: [:delete, :destory, :index] do
+  resources :users, except: [:index, :delete] do
     resources :reviews, only: :show
+
+    member do
+      get 'settings', to: 'users#edit_settings'
+      patch 'settings', to: 'users#update_settings'
+    end
   end
 
   resources :businesses do

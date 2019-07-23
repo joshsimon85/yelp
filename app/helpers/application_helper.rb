@@ -118,4 +118,8 @@ module ApplicationHelper
   def calculate_average_rating_percentage(average)
     (average * 20).round
   end
+
+  def format_month_year(time)
+    time.strftime("%B %Y")
+  end
 end

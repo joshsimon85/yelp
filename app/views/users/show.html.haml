@@ -1,3 +1,50 @@
 =render 'shared/nav'
-=render partial: 'shared/businesses', locals: { businesses: @businesses, count: @count, current_page: @current_page, category: 'businesses near you'}
+%main.user.business
+  %section.clearfix
+    %section
+      %h2
+        =format_name(@user.first_name, @user.last_name)
+      %p
+        #{@user.city.capitalize}, #{@user.state.capitalize}
+      %ul
+        %li
+          =fa_icon 'building'
+          %span
+            #{@user.businesses.count} Businesses
+        %li
+          =fa_icon 'star'
+          %span
+            #{@user.reviews.count} Reviews
+      -if same_user?(@user)
+        =link_to edit_user_path(@user) do
+          =fa_icon 'pencil'
+          Update your profile
+    %aside.bio
+      %h3
+        About #{format_name(@user.first_name, @user.last_name)}
+      %dl
+        %dt
+          Location
+        %dd
+          #{@user.city.capitalize}, #{@user.state.capitalize}
+        %dt
+          Yelping Since
+        %dd
+          #{format_month_year(@user.created_at)}
+        %dt
+          Things I Love
+        %dd
+          -if @user.about
+            @user.about
+          -else
+            You haven't told us yet... do tell!
+  %section
+    -if @user.reviews.count == 0
+      %p.no-reviews
+        Devin S. has not written any reviews yet!
+    -else
+      %ul.user-reviews
+        -@reviews.each do |review|
+          =render partial: 'shared/review', locals: { review: review }
+    =render partial: 'shared/pagination', locals: { current_page: @current_page, count: @count }
 =render 'shared/footer'

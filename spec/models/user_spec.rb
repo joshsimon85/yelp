@@ -5,8 +5,8 @@ RSpec.describe User do
   it { should validate_presence_of :first_name }
   it { should validate_presence_of :last_name }
   it { should validate_presence_of :email }
-  it { should validate_presence_of :password_digest }
+  it { should validate_presence_of :password }
   it { should validate_uniqueness_of(:email).case_insensitive }
-  it { should have_many :reviews }
-  it { should have_many :businesses }
+  it { should have_many(:reviews).dependent(:destroy) }
+  it { should have_many(:businesses).dependent(:destroy) }
 end

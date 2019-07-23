@@ -73,6 +73,7 @@ h3.errors {
   list-style-type: circle;
   margin-left: 40px;
   margin-top: 15px;
+  text-align: left;
 }
 
 textarea {
