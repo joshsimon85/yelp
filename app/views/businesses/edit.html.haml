@@ -2,7 +2,7 @@
 %main.add-business
   %section.clearfix
     %section
-      %h2 Edit #{@business.name.capitalize}
+      %h2 Edit #{@business.name.titleize}
       =form_for @business, html: { novalidate: true } do |f|
         -if @business.errors.any?
           %div{id: 'errors_explanation'}

@@ -29,16 +29,29 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     unless same_user?(@user)
-      flash[:error] = 'You can not edit account settings on an account that does not belong to you'
-      redirect_to user_path(current_user.id)
+      if logged_in?
+        flash[:error] = 'You can not edit an account that does not belong to you'
+        redirect_to user_path(current_user.id)
+      else
+        flash[:error] = 'You must be logged in to do that'
+        redirect_to sign_in_path
+      end
+      return
     end
   end
 
   def update
     @user = User.find(params[:id])
+
     unless same_user?(@user)
-      flash[:error] = 'You can not edit account settings on an account that does not belong to you'
-      redirect_to user_path(current_user.id)
+      if logged_in?
+        flash[:error] = 'You can not edit an account that does not belong to you'
+        redirect_to user_path(current_user.id)
+      else
+        flash[:error] = 'You must be logged in to do that'
+        redirect_to sign_in_path
+      end
+      return
     end
 
     @user.update(user_params.merge(birthday: format_birthday(params[:birthday])))
@@ -56,8 +69,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     unless same_user?(@user)
-      flash[:error] = 'You can not edit account settings on an account that does not belong to you'
-      redirect_to user_path(current_user.id)
+      if logged_in?
+        flash[:error] = 'You can not edit account settings on an account that does not belong to you'
+        redirect_to user_path(current_user.id)
+      else
+        flash[:error] = 'You must be logged in to do that'
+        redirect_to sign_in_path
+      end
+      return
     end
   end
 
@@ -65,8 +84,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     unless same_user?(@user)
-      flash[:error] = 'You can not edit account settings on an account that does not belong to you'
-      redirect_to user_path(current_user.id)
+      if logged_in?
+        flash[:error] = 'You can not delete an account that does not belong to you'
+        redirect_to user_path(current_user.id)
+      else
+        flash[:error] = 'You must be logged in to do that'
+        redirect_to sign_in_path
+      end
+      return
     end
 
     if !@user.authenticate(params[:c_pass])
@@ -87,10 +112,18 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
+
     unless same_user?(@user)
-      flash[:error] = 'You can not edit account settings on an account that does not belong to you'
-      redirect_to user_path(current_user.id)
+      if logged_in?
+        flash[:error] = 'You can not delete an account that does not belong to you'
+        redirect_to user_path(current_user.id)
+      else
+        flash[:error] = 'You must be logged in to do that'
+        redirect_to sign_in_path
+      end
+      return
     end
+
     @user.destroy
     flash[:notice] = 'Your account has been deleted'
     session[:user_id] = nil

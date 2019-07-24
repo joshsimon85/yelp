@@ -5,7 +5,7 @@
       %h2
         =format_name(@user.first_name, @user.last_name)
       %p
-        #{@user.city.capitalize}, #{@user.state.capitalize}
+        #{@user.city.titleize}, #{@user.state.titleize}
       %ul
         %li
           =fa_icon 'building'
@@ -26,7 +26,7 @@
         %dt
           Location
         %dd
-          #{@user.city.capitalize}, #{@user.state.capitalize}
+          #{@user.city.titleize}, #{@user.state.titleize}
         %dt
           Yelping Since
         %dd

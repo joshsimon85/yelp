@@ -4,7 +4,7 @@
       =fa_icon 'user'
     %li
       =link_to "#{format_name(review.creator.first_name, review.creator.last_name)}", user_path(review.creator.id)
-      #{review.creator.city.capitalize}, #{review.creator.state.capitalize}
+      #{review.creator.city.titleize}, #{review.creator.state.titleize}
       =fa_icon 'building'
       %span
         =review.creator.businesses.size

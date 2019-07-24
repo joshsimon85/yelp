@@ -1,10 +1,6 @@
-make sure to titleize business name
 add pagination to reviews under the show business page
 navigate to gcc and click on it to edit.. raises an error
 figure out a way to make rails prevent default on delete a tags with delete method
-validate phone number inputs
-locations ie state need to be titleized not cap
-create a hash table that maps to two letter ident for states
 create reviews show page
-inmplement search feature
+implement search feature
 set up home page
