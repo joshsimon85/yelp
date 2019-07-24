@@ -47,9 +47,7 @@
               %li
                 =format_phone(business.phone)
               %li
-                =business.city.titleize
-              %li
-                =business.state.titleize
+                #{business.city.titleize}, #{state_abb(business.state)}
     =render partial: 'shared/pagination', locals: { current_page: current_page, count: count }
   -else
     =render partial: 'shared/empty_content', locals: { category: category }
