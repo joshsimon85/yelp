@@ -42,12 +42,15 @@
         #{@business.city.capitalize}, #{@business.state.capitalize}
     -if @business.reviews.size > 0
       %section
-        %h3
-          Reviews for #{@business.name.titleize}
+        %header.clearfix
+          %h3.float-left
+            Reviews for #{@business.name.titleize}
+          %p.float-right
+            Showing #{calculate_start_count(@count, @current_page)} to #{calculate_end_count(@count, @current_page)} of #{@count}
         %ul.user-reviews
           -@reviews.each do |review|
             =render partial: 'shared/review', locals: { review: review }
-          =render partial: 'shared/pagination', locals: { current_page: @current_page, count: @count }
+          =render partial: 'shared/reviews_pagination', locals: {current_page: @current_page, count: @count }
     -else
       =render partial: 'shared/empty_content', locals: { category: 'reviews' }
 =render 'shared/footer'

@@ -10,6 +10,7 @@ jane = User.create({ first_name: 'Jane', last_name: 'Doe', email: 'jane@doe.com'
 carrie = User.create({ first_name: 'Carrie', last_name: 'Doe', email: 'carrie@doe.com', password: 'password', city: 'Longmont', state: 'Colorado', birthday: '1959-09-10' })
 josh = User.create({ first_name: 'Josh', last_name: 'Doe', email: 'josh@doe.com', password: 'password', city: 'Lyons', state: 'Colorado', birthday: '1959-09-10' })
 tammy  = User.create({ first_name: 'Tammy', last_name: 'Doe', email: 'tammy@doe.com', password: 'password', city: 'Pinewood Springs', state: 'Colorado', birthday: '1959-09-10' })
+chad = User.create({ first_name: 'Chad', last_name: 'Doe', email: 'chad@doe.com', password: 'password', city: 'Gillcrest', state: 'mississippi' })
 
 hapa = Business.create({
   name: 'Hapa',
@@ -134,6 +135,34 @@ Review.create({
 Review.create({
   body: Faker::Lorem.paragraphs((1..30).to_a.sample).join(' '),
   user_id: jane.id,
+  business_id: hapa.id,
+  rating: (1..5).to_a.sample
+})
+
+Review.create({
+  body: Faker::Lorem.paragraphs((1..30).to_a.sample).join(' '),
+  user_id: carrie.id,
+  business_id: hapa.id,
+  rating: (1..5).to_a.sample
+})
+
+Review.create({
+  body: Faker::Lorem.paragraphs((1..30).to_a.sample).join(' '),
+  user_id: josh.id,
+  business_id: hapa.id,
+  rating: (1..5).to_a.sample
+})
+
+Review.create({
+  body: Faker::Lorem.paragraphs((1..30).to_a.sample).join(' '),
+  user_id: tammy.id,
+  business_id: hapa.id,
+  rating: (1..5).to_a.sample
+})
+
+Review.create({
+  body: Faker::Lorem.paragraphs((1..30).to_a.sample).join(' '),
+  user_id: chad.id,
   business_id: hapa.id,
   rating: (1..5).to_a.sample
 })

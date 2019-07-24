@@ -16,7 +16,7 @@
       =link_to businesses_path, { id: 'all-businesses-link', data: {toggle: 'tooltip', placement: 'bottom', container: 'body' }, title: 'See All Businesses' } do
         =fa_icon 'building'
     %li.nav-item
-      %a{href: '#', data: {toggle: 'tooltip', placement: 'bottom'}, title: 'See All Reviews'}
+      =link_to reviews_path, {data: {toggle: 'tooltip', placement: 'bottom'}, title: 'See All Reviews'} do 
         =fa_icon 'star'
     %li.dropdown.nav-item
       %a.dropdown-toggle{href: '#', role: 'button', id: 'dropdownMenuLink', data: {toggle: 'dropdown'}}

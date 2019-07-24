@@ -1056,6 +1056,10 @@ main.business {
   width: 980px;
 }
 
+main.business .clearfix p {
+  margin-top: 18px;
+}
+
 main.business .clearfix {
   margin-bottom: 20px;
 }

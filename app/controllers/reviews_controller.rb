@@ -1,6 +1,12 @@
 class ReviewsController < ApplicationController
   before_action :require_login, only: [:new, :create, :edit]
 
+  def index
+    @reviews = Review.get_records_by_offset(params[:page])
+    @count = Review.count
+    @current_page = params[:page] || '1'
+  end
+
   def new
     @review = Review.new
     @business = Business.find(params[:business_id])

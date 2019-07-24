@@ -9,9 +9,9 @@ class BusinessesController < ApplicationController
 
   def show
     @business = Business.find_by id: params[:id]
-    @reviews = @business.reviews.limit(5)
-    @count = @business.reviews.size
     @current_page = params[:page] || '1'
+    @reviews = get_reviews_by_offset(@business.reviews, @current_page)
+    @count = @business.reviews.size
   end
 
   def new
@@ -66,6 +66,14 @@ class BusinessesController < ApplicationController
   end
 
   private
+
+  def get_reviews_by_offset(reviews, page_number, amount=5)
+    if page_number.nil? || page_number.to_i == 1
+      reviews.offset(0).limit(amount)
+    else
+      reviews.offset(5 * (page_number.to_i - 1)).limit(amount)
+    end
+  end
 
   def business_params
     params.require(:business).permit!

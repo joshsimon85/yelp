@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :reviews, only: :index 
+
   resources :businesses do
     resources :reviews, except: :index
   end

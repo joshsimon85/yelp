@@ -1,6 +1,3 @@
-add pagination to reviews under the show business page
-navigate to gcc and click on it to edit.. raises an error
 figure out a way to make rails prevent default on delete a tags with delete method
-create reviews show page
 implement search feature
 set up home page
