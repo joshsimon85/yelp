@@ -19,14 +19,14 @@
         =link_to 'Sign Up', register_path, {class: 'button'}
   %h1{ id: 'logo' }
     =link_to 'yELp', root_path
-  %form{ method: 'get', action: '#' }
-    %label{ for: 'find-q' }
+  =form_tag search_businesses_path, method: :get do
+    =label_tag do
       Find
-      %input{ type: 'text', name: 'find_query', id: 'find-q', placeholder: 'movers, burgers, bars, spas...' }
-    %label{ for: 'near-q'}
+      =text_field_tag :category, nil, id: 'find-q', placeholder: 'movers, burgers, bars, spas...'
+    =label_tag do
       Near
-      %input{ type: 'text', name: 'near_query', id: 'near-q', placeholder: 'Longmont, CO'}
-    %input{ type: 'submit', value: 'Search'}
+      =text_field_tag :location, nil, id: 'near-q', placeholder: 'Denver, CO'
+    =submit_tag 'Search', name: nil
   %ul.sub-nav
     %li
       =fa_icon 'truck'

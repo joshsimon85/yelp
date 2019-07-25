@@ -65,6 +65,15 @@ class BusinessesController < ApplicationController
     end
   end
 
+  def query
+    @category = params[:category]
+    @location = params[:location]
+    @current_page = params[:page] || '1'
+    @businesses = Business.query_by(@category, @location, @current_page, false)
+    @count = Business.query_by(@category, @location, @current_page)
+    @terms = "#{@category} #{@location}".strip
+  end
+
   private
 
   def get_reviews_by_offset(reviews, page_number, amount=5)

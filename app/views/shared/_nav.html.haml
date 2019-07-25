@@ -4,19 +4,19 @@
       %h1{id: 'nav-logo'}
         =link_to 'yELp', root_path
     %li.nav-item
-      %form{ method: 'get', action: '#' }
-        %label{ for: 'find-q' }
+      =form_tag search_businesses_path, method: :get do
+        =label_tag do
           Find
-        %input{ type: 'text', name: 'find_query', id: 'find-q', placeholder: 'movers, burgers...' }
-        %label{ for: 'near-q'}
+          =text_field_tag :category, nil, id: 'find-q', placeholder: 'movers, burgers, bars, spas...'
+        =label_tag do
           Near
-        %input{ type: 'text', name: 'near_query', id: 'near-q', placeholder: "#{current_user.city}, #{format_state(current_user.state)}" }
-        %input{ type: 'submit', value: 'Search'}
+          =text_field_tag :location, nil, id: 'near-q', placeholder: 'Denver, CO'
+        =submit_tag 'Search', name: nil
     %li.nav-item
       =link_to businesses_path, { id: 'all-businesses-link', data: {toggle: 'tooltip', placement: 'bottom', container: 'body' }, title: 'See All Businesses' } do
         =fa_icon 'building'
     %li.nav-item
-      =link_to reviews_path, {data: {toggle: 'tooltip', placement: 'bottom'}, title: 'See All Reviews'} do 
+      =link_to reviews_path, {data: {toggle: 'tooltip', placement: 'bottom'}, title: 'See All Reviews'} do
         =fa_icon 'star'
     %li.dropdown.nav-item
       %a.dropdown-toggle{href: '#', role: 'button', id: 'dropdownMenuLink', data: {toggle: 'dropdown'}}

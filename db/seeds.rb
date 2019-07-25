@@ -25,6 +25,32 @@ hapa = Business.create({
   user_id: jon.id
 })
 
+fuji = Business.create({
+  name: 'Fuji',
+  address_1: Faker::Address.street_address,
+  address_2: Faker::Address.street_address,
+  city: 'Boulder',
+  state: 'Colorado',
+  phone: "720-444-#{Faker::PhoneNumber.subscriber_number}",
+  price: (1..5).to_a.sample,
+  description: Faker::Lorem.paragraphs((1..30).to_a.sample).join(' '),
+  tags: '@Sushi',
+  user_id: jon.id
+})
+
+oscar_blues = Business.create({
+  name: 'Oscar Blues',
+  address_1: Faker::Address.street_address,
+  address_2: Faker::Address.street_address,
+  city: 'Boulder',
+  state: 'Colorado',
+  phone: "720-444-#{Faker::PhoneNumber.subscriber_number}",
+  price: (1..5).to_a.sample,
+  description: Faker::Lorem.paragraphs((1..30).to_a.sample).join(' '),
+  tags: '@Burgers',
+  user_id: jon.id
+})
+
 five_guys = Business.create({
   name: '5 Guys',
   address_1: Faker::Address.street_address,

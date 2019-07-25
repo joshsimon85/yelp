@@ -10,10 +10,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :reviews, only: :index 
+  resources :reviews, only: :index
 
   resources :businesses do
     resources :reviews, except: :index
+
+    collection do
+      get '/search', to: 'businesses#query'
+    end
   end
 
   root to: 'pages#front'
@@ -22,4 +26,5 @@ Rails.application.routes.draw do
   post '/sign_in', to: 'sessions#create'
   get '/log_out', to: 'sessions#destroy'
   get '/register', to: 'users#new'
+  get '/search', to: 'businesses#query'
 end
