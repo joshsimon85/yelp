@@ -19,22 +19,22 @@
 //= require bootstrap
 
 $(function() {
-  const $MONTH_SELECT = $('#birthday__2i');
-  const $DAY_SELECT = $('#birthday__3i');
-  const $DAY_OPTIONS = $($DAY_SELECT).find('option');
-  const $MONTH_OPTIONS = $($MONTH_SELECT).find('option');
-  const DAYS_IN_MONTH = {
+  var $MONTH_SELECT = $('#birthday__2i');
+  var $DAY_SELECT = $('#birthday__3i');
+  var $DAY_OPTIONS = $($DAY_SELECT).find('option');
+  var $MONTH_OPTIONS = $($MONTH_SELECT).find('option');
+  var DAYS_IN_MONTH = {
     '1': 31, '2': 28, '3': 31, '4': 30, '5': 31, '6': 30, '7': 31, '8': 31,
     '9': 30, '10': 31, '11': 30, '12': 31
   };
 
-  const App = {
+  var App = {
     viewFullText: function(e) {
       e.preventDefault();
 
-      const $a = $(e.target);
-      const $truncText = $a.parent();
-      const $fullText = $truncText.next('.full-text');
+      var $a = $(e.target);
+      var $truncText = $a.parent();
+      var $fullText = $truncText.next('.full-text');
 
       $truncText.hide();
       $fullText.show();
@@ -43,24 +43,21 @@ $(function() {
     viewTruncText: function(e) {
       e.preventDefault();
 
-      const $a = $(e.target);
-      const $fullText = $a.parent();
-      const $truncText = $fullText.prev('.truncated');
+      var $a = $(e.target);
+      var $fullText = $a.parent();
+      var $truncText = $fullText.prev('.truncated');
 
       $fullText.hide();
       $truncText.show();
     },
     filterDays: function(e) {
-      const month = $(e.target).find('option:selected').val();
-      const days = (DAYS_IN_MONTH[month]);
+      var month = $(e.target).find('option:selected').val();
+      var days = (DAYS_IN_MONTH[month]);
       if (!month) {
         $DAY_OPTIONS.show();
       } else {
         $DAY_OPTIONS.slice(days + 1).hide();
       }
-    },
-    filterMonths: function(e) {
-
     },
     bindEvents: function() {
       $('[data-toggle="tooltip"]').tooltip();
@@ -74,5 +71,5 @@ $(function() {
     }
   };
 
-  const app = Object.create(App).init();
+  var app = Object.create(App).init();
 });
