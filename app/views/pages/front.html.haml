@@ -1,17 +1,9 @@
-=render 'shared/upper_notice'
 =render 'shared/flash_notices'
 %section.hero
   %nav
     %ul.hero-nav
       %li
-        %a{ href: '#' }
-          Write a Review
-      %li
-        %a{ href: '#' }
-          Events
-      %li
-        %a{ href: '#' }
-          Talk
+        =link_to 'Write a Review', sign_in_path
     %ul.hero-login
       %li
         =link_to 'Log In', sign_in_path
@@ -29,22 +21,13 @@
     =submit_tag 'Search', name: nil
   %ul.sub-nav
     %li
-      =fa_icon 'truck'
-      %a{ href: '#' }
-        Movers
-    %li
-      =fa_icon 'cutlery'
-      %a{ href: '#' }
-        Restaurants
-    %li
       =fa_icon 'home'
-      %a{ href: '#' }
-        Home Services
-      =fa_icon 'caret-down'
+      =link_to businesses_path do
+        Businesses
     %li
-      =fa_icon 'plane'
-      %a{ href: '#' }
-        Delivery
+      =fa_icon 'pencil'
+      =link_to reviews_path do
+        Reviews
   %div.photo-credit
     %a{ href: '/biz/revival-minneapolis' }
       Revival
