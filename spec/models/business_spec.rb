@@ -17,15 +17,15 @@ RSpec.describe Business do
 
     context 'state only' do
       it 'should return a list with the businesses with the same state' do
-        expect(Business.query_by(nil, 'colorado')).to eq([hapa])
+        expect(Business.query_by('', 'colorado', nil, false)).to eq([hapa])
       end
 
       it 'returns a list with the businesses with the same state (case insensitive)' do
-        expect(Business.query_by(nil, 'Colorado')).to eq([hapa])
+        expect(Business.query_by('', 'Colorado', nil, false)).to eq([hapa])
       end
 
       it 'returns a list with the businesses that match abbreviated state' do
-        expect(Business.query_by(nil, 'CO')).to eq([hapa])
+        expect(Business.query_by('', 'CO', nil, false)).to eq([hapa])
       end
     end
 
@@ -33,7 +33,7 @@ RSpec.describe Business do
       let!(:cemex) { Fabricate(:business, state: 'colorado', city: 'Superior', user_id: user.id) }
 
       it 'returns a list with the business that matches both city and state' do
-        expect(Business.query_by(nil, 'Boulder, Colorado')).to eq([hapa])
+        expect(Business.query_by('', 'Boulder, Colorado', nil, false)).to eq([hapa])
       end
     end
 
@@ -41,7 +41,7 @@ RSpec.describe Business do
       let!(:cemex) { Fabricate(:business, state: 'colorado', city: 'Superior', user_id: user.id, tags: '@dusty, @long hours') }
 
       it 'returns a list with the business that matches any of the tags' do
-        expect(Business.query_by('dusty', 'superior, Colorado')).to eq([cemex])
+        expect(Business.query_by('dusty', 'superior, Colorado', nil, false)).to eq([cemex])
       end
     end
   end

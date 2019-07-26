@@ -1,4 +1,1 @@
-figure out a way to make rails prevent default on delete a tags with delete method
-implement search feature
 set up home page
-lyons not showing up in search

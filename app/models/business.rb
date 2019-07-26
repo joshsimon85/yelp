@@ -18,35 +18,49 @@ class Business < ActiveRecord::Base
     state = city_state[1].downcase.strip if city_state.size == 2
     city = city_state[0].downcase.strip unless city_state.empty?
 
-    if category && location
-      if count
-        where("lower(city) LIKE ? AND lower(state) LIKE ? AND lower(tags) LIKE ?", "%#{city}%", "%#{state}%", "%#{category.downcase.strip}%").count
-      else
-        if page_number.nil? || page_number.to_i == 1
-          where("lower(city) LIKE ? AND lower(state) LIKE ? AND lower(tags) LIKE ?", "%#{city}%", "%#{state}%", "%#{category.downcase.strip}%").offset(0).limit(amount)
-        else
-          where("lower(city) LIKE ? AND lower(state) LIKE ? AND lower(tags) LIKE ?", "%#{city}%", "%#{state}%", "%#{category.downcase.strip}%").offset(5 * (page_number.to_i - 1)).limit(amount)
-        end
-      end
+    if !category.empty? && location
+      self.find_by_cat_and_location(category, city, state, page_number, count, amount)
     elsif city_state.size == 2
-      if count
-        where("lower(city) LIKE ? AND lower(state) LIKE ?", "%#{city}%", "%#{state}%").count
-      else
-        if page_number.nil? || page_number.to_i == 1
-          where("lower(city) LIKE ? AND lower(state) LIKE ?", "%#{city}%", "%#{state}%").offset(0).limit(amount)
-        else
-          where("lower(city) LIKE ? AND lower(state) LIKE ?", "%#{city}%", "%#{state}%").offset(5 * (page_number.to_i - 1)).limit(amount)
-        end
-      end
+      self.find_by_location(city, state, page_number, count, amount)
     else
-      if count
-        where("lower(state) LIKE ?", "%#{location.downcase}%").count
+      self.find_by_city_or_state(location.downcase.strip, page_number, count)
+    end
+  end
+
+  private
+
+  def self.find_by_city_or_state(location, page_number, count)
+    if count
+      where("lower(city) LIKE ? OR lower(state) LIKE ?", "%#{location.downcase.strip}%", "%#{location.downcase.strip}%").count
+    else
+      if page_number.nil? || page_number.to_i == 1
+        where("lower(city) LIKE ? OR lower(state) LIKE ?", "%#{location.downcase.strip}%", "%#{location.downcase.strip}%").offset(0).limit(5)
       else
-        if page_number.nil? || page_number.to_i == 1
-          where("lower(state) LIKE ?", "%#{location.downcase}%").offset(0).limit(5)
-        else
-          where("lower(state) LIKE ?", "%#{location.downcase}%").offset(5 * (page_number.to_i - 1)).limit(amount)
-        end
+        where("lower(city) LIKE ? OR lower(state) LIKE ?", "%#{location.downcase.strip}%", "%#{location.downcase.strip}%").offset(5 * (page_number.to_i - 1)).limit(amount)
+      end
+    end
+  end
+
+  def self.find_by_location(city, state, page_number, count, amount)
+    if count
+      where("lower(city) LIKE ? AND lower(state) LIKE ?", "%#{city}%", "%#{state}%").count
+    else
+      if page_number.nil? || page_number.to_i == 1
+        where("lower(city) LIKE ? AND lower(state) LIKE ?", "%#{city}%", "%#{state}%").offset(0).limit(amount)
+      else
+        where("lower(city) LIKE ? AND lower(state) LIKE ?", "%#{city}%", "%#{state}%").offset(5 * (page_number.to_i - 1)).limit(amount)
+      end
+    end
+  end
+
+  def self.find_by_cat_and_location(category, city, state, page_number, count, amount)
+    if count
+      where("lower(city) LIKE ? AND lower(state) LIKE ? AND lower(tags) LIKE ?", "%#{city}%", "%#{state}%", "%#{category.downcase.strip}%").count
+    else
+      if page_number.nil? || page_number.to_i == 1
+        where("lower(city) LIKE ? AND lower(state) LIKE ? AND lower(tags) LIKE ?", "%#{city}%", "%#{state}%", "%#{category.downcase.strip}%").offset(0).limit(amount)
+      else
+        where("lower(city) LIKE ? AND lower(state) LIKE ? AND lower(tags) LIKE ?", "%#{city}%", "%#{state}%", "%#{category.downcase.strip}%").offset(5 * (page_number.to_i - 1)).limit(amount)
       end
     end
   end
