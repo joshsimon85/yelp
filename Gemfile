@@ -13,7 +13,7 @@ gem 'rails', '~> 5.2.3'
 #gem 'sqlite3'
 gem 'haml', '~> 5.1', '>= 5.1.1'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3'
 # Use SCSS for stylesheets
 gem 'pg', '~> 0.18.4'
 gem 'sass-rails', '~> 5.0'
